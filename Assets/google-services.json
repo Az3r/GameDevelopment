@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "279365688231",
+    "project_id": "bullet-hell-a4d91",
+    "storage_bucket": "bullet-hell-a4d91.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279365688231:android:d82f29e1aa00cc66fe3482",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.BulletHell"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "279365688231-1r97dedlv50otjmqi9j2v3ad0dec4oeo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8mc_mvsJXlhqwyC4R172VfBpqXUNxPaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "279365688231-1r97dedlv50otjmqi9j2v3ad0dec4oeo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
