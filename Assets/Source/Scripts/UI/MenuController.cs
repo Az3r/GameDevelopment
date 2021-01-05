@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-  public GameObject StartMenu;
-  public GameObject SettingMenu;
+  public List<GameObject> menus;
   public void StartGame()
   {
     SceneManager.LoadScene("MainScene");
@@ -17,14 +16,12 @@ public class MenuController : MonoBehaviour
     Application.Quit();
   }
 
-  public void OpenSettingMenu()
+  public void OpenMenu(int index)
   {
-    StartMenu.SetActive(false);
-    SettingMenu.SetActive(true);
-  }
-  public void OpenStartMenu()
-  {
-    StartMenu.SetActive(true);
-    SettingMenu.SetActive(false);
+    for (int i = 0; i < menus.Count; i++)
+    {
+      menus[i].SetActive(false);
+    }
+    menus[index].SetActive(true);
   }
 }
