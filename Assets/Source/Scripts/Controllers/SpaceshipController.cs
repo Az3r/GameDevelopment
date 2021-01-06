@@ -6,19 +6,26 @@ using UnityEngine;
 [System.Serializable]
 public class Boundary
 {
-    public float xMin, xMax, yMin, yMax;
+    public float xMin = -8, xMax = 8, yMin = -5, yMax = 5;
 }
 
 public class SpaceshipController : MonoBehaviour
 {
     public float speed = 10;
-    private Vector2 mousePosition;
+    //private Vector2 mousePosition;
     float horizontal;
     float vertical;
     new Rigidbody rigidbody;
     public float tilt = 3;
 
     public Boundary boundary;
+
+    public GameObject defaultBullet;
+    public Transform shotSpawn;
+
+    public float fireRate = 0.2f;
+
+    private float nextFire;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +36,11 @@ public class SpaceshipController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0)) && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(defaultBullet, shotSpawn.position, shotSpawn.rotation);
+        }
     }
 
     void FixedUpdate()
