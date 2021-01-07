@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class MenuController : MonoBehaviour
@@ -73,6 +74,7 @@ public class MenuController : MonoBehaviour
     fullScreenToggle[0].SetActive(value);
     fullScreenToggle[1].SetActive(!value);
   }
+
   public void SetResolution(int index)
   {
     Resolution selected = Screen.resolutions[index];
