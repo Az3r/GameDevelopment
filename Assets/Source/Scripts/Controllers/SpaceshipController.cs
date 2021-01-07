@@ -63,3 +63,4 @@ public class SpaceshipController : MonoBehaviour
         rigidbody.rotation = Quaternion.Euler(-90.0f, rigidbody.velocity.x * -tilt, 0.0f);
     }
 }
+}
