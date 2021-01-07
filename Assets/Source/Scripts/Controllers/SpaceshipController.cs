@@ -11,10 +11,17 @@ public class Boundary
 
 public class SpaceshipController : MonoBehaviour
 {
-    public float speed = 10;
-    //private Vector2 mousePosition;
-    float horizontal;
-    float vertical;
+    public float keyspeed = 10;
+    public float mousespeed = 30;
+    //move by key
+    float keyHorizontal;
+    float keyVertical;
+    //move by mouse
+    float mouseHorizontal;
+    float mouseVertical;
+    bool mouseMove;
+
+
     new Rigidbody rigidbody;
     public float tilt = 3;
 
@@ -45,20 +52,50 @@ public class SpaceshipController : MonoBehaviour
 
     void FixedUpdate()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
+        {
+            mouseMove = true;
+            //Move by mouse
+            mouseHorizontal = Input.GetAxis("Horizontal");
+            mouseVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(horizontal, vertical, 0.0f);
-        rigidbody.velocity = movement * speed;
+            Vector3 movementbykey = new Vector3(mouseHorizontal, mouseVertical, 0.0f);
+            rigidbody.velocity = movementbykey * keyspeed;
 
-        rigidbody.MovePosition(new Vector3
-        (
-            Mathf.Clamp(rigidbody.position.x, boundary.xMin, boundary.xMax),
-            Mathf.Clamp(rigidbody.position.y, boundary.yMin, boundary.yMax),
-            0.0f
-        ));
+            rigidbody.MovePosition(new Vector3
+            (
+                Mathf.Clamp(rigidbody.position.x, boundary.xMin, boundary.xMax),
+                Mathf.Clamp(rigidbody.position.y, boundary.yMin, boundary.yMax),
+                0.0f
+            ));
 
-        //Rotation when flight
-        rigidbody.rotation = Quaternion.Euler(-90.0f, rigidbody.velocity.x * -tilt, 0.0f);
+            //Rotation when flight
+            rigidbody.rotation = Quaternion.Euler(-90.0f, rigidbody.velocity.x * -tilt, 0.0f);
+        } else if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0 && !mouseMove)
+        {
+            //Move by key
+            keyHorizontal = Input.GetAxis("Horizontal");
+            keyVertical = Input.GetAxis("Vertical");
+
+            Vector3 movementbykey = new Vector3(keyHorizontal, keyVertical, 0.0f);
+            rigidbody.velocity = movementbykey * keyspeed;
+
+            rigidbody.MovePosition(new Vector3
+            (
+                Mathf.Clamp(rigidbody.position.x, boundary.xMin, boundary.xMax),
+                Mathf.Clamp(rigidbody.position.y, boundary.yMin, boundary.yMax),
+                0.0f
+            ));
+
+            //Rotation when flight
+            rigidbody.rotation = Quaternion.Euler(-90.0f, rigidbody.velocity.x * -tilt, 0.0f);
+        }
+        else
+        {
+            mouseMove = false;
+        }
+        
     }
+       
+         
 }
