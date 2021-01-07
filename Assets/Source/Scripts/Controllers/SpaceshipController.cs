@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 [System.Serializable]
 public class Boundary
 {
@@ -11,6 +11,7 @@ public class Boundary
 
 public class SpaceshipController : MonoBehaviour
 {
+    public InputManager controller;
     public float speed = 10;
     //private Vector2 mousePosition;
     float horizontal;
@@ -26,29 +27,29 @@ public class SpaceshipController : MonoBehaviour
     public float fireRate = 0.2f;
 
     private float nextFire;
+    private Vector2 movement;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Shoot(InputAction.CallbackContext context)
     {
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0)) && Time.time > nextFire)
+        if (Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
             Instantiate(defaultBullet, shotSpawn.position, shotSpawn.rotation);
         }
     }
 
+    public void Move(InputAction.CallbackContext context)
+    {
+        var input = context.ReadValue<Vector2>();
+        movement = new Vector3(input.x, input.y);
+    }
     void FixedUpdate()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(horizontal, vertical, 0.0f);
         rigidbody.velocity = movement * speed;
 
         rigidbody.MovePosition(new Vector3
