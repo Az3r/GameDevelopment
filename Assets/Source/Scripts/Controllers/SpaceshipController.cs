@@ -50,6 +50,7 @@ public class SpaceshipController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        //Input.GetAxis("Vertical");
         rigidbody.velocity = movement * speed;
 
         rigidbody.MovePosition(new Vector3
@@ -62,4 +63,5 @@ public class SpaceshipController : MonoBehaviour
         //Rotation when flight
         rigidbody.rotation = Quaternion.Euler(-90.0f, rigidbody.velocity.x * -tilt, 0.0f);
     }
+
 }
