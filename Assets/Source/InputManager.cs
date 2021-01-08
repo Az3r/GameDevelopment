@@ -75,9 +75,17 @@ public class @InputManager : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""MoveVertical"",
                     ""type"": ""Button"",
-                    ""id"": ""57f72ac5-f7c1-46a8-adcc-e633da010799"",
+                    ""id"": ""648b2b79-6739-4935-91c2-0c83db1f9796"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold""
+                },
+                {
+                    ""name"": ""MoveHorizontal"",
+                    ""type"": ""Button"",
+                    ""id"": ""1100718b-53c8-46e9-b0f7-8aa5e7dae57d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Hold""
@@ -163,56 +171,67 @@ public class @InputManager : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""arrows"",
-                    ""id"": ""5e570d27-7f24-4af8-b536-7f20a892a81f"",
-                    ""path"": ""2DVector"",
+                    ""id"": ""691cb69c-5d3d-417e-96c3-657eaf376994"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveVertical"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""033920fa-196e-4e22-af0a-65fe79b189cf"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""876dcb7d-3817-4dde-a703-1f953c6c21cb"",
+                    ""name"": ""negative"",
+                    ""id"": ""724c9fdb-1eef-40e4-b5de-53da72009d1e"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveVertical"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
-                    ""id"": ""62858990-af47-4c42-9744-6340f9e82f83"",
+                    ""name"": ""positive"",
+                    ""id"": ""716cc106-62e2-4a3d-98a8-61af5f295681"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""MoveVertical"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""arrows"",
+                    ""id"": ""78929faa-d3ac-4eca-be79-2788c949d8c3"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveHorizontal"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""76514ac4-b5a0-42fe-a929-53d09d930606"",
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""21027426-e8fc-42a9-9a93-bfad411f0373"",
+                    ""name"": ""positive"",
+                    ""id"": ""3fdaf302-2d0b-4c28-be31-13b8552a26a6"",
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveHorizontal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -242,7 +261,8 @@ public class @InputManager : IInputActionCollection, IDisposable
         m_Player_Load = m_Player.FindAction("Load", throwIfNotFound: true);
         m_Player_Help = m_Player.FindAction("Help", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
-        m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_MoveVertical = m_Player.FindAction("MoveVertical", throwIfNotFound: true);
+        m_Player_MoveHorizontal = m_Player.FindAction("MoveHorizontal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -299,7 +319,8 @@ public class @InputManager : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Load;
     private readonly InputAction m_Player_Help;
     private readonly InputAction m_Player_Pause;
-    private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_MoveVertical;
+    private readonly InputAction m_Player_MoveHorizontal;
     public struct PlayerActions
     {
         private @InputManager m_Wrapper;
@@ -311,7 +332,8 @@ public class @InputManager : IInputActionCollection, IDisposable
         public InputAction @Load => m_Wrapper.m_Player_Load;
         public InputAction @Help => m_Wrapper.m_Player_Help;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
-        public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @MoveVertical => m_Wrapper.m_Player_MoveVertical;
+        public InputAction @MoveHorizontal => m_Wrapper.m_Player_MoveHorizontal;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -342,9 +364,12 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
-                @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @MoveVertical.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveVertical;
+                @MoveVertical.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveVertical;
+                @MoveVertical.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveVertical;
+                @MoveHorizontal.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveHorizontal;
+                @MoveHorizontal.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveHorizontal;
+                @MoveHorizontal.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveHorizontal;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -370,9 +395,12 @@ public class @InputManager : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
+                @MoveVertical.started += instance.OnMoveVertical;
+                @MoveVertical.performed += instance.OnMoveVertical;
+                @MoveVertical.canceled += instance.OnMoveVertical;
+                @MoveHorizontal.started += instance.OnMoveHorizontal;
+                @MoveHorizontal.performed += instance.OnMoveHorizontal;
+                @MoveHorizontal.canceled += instance.OnMoveHorizontal;
             }
         }
     }
@@ -395,6 +423,7 @@ public class @InputManager : IInputActionCollection, IDisposable
         void OnLoad(InputAction.CallbackContext context);
         void OnHelp(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
-        void OnMovement(InputAction.CallbackContext context);
+        void OnMoveVertical(InputAction.CallbackContext context);
+        void OnMoveHorizontal(InputAction.CallbackContext context);
     }
 }

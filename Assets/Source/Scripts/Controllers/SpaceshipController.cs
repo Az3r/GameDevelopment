@@ -11,7 +11,6 @@ public class Boundary
 
 public class SpaceshipController : MonoBehaviour
 {
-    public InputManager controller;
     public float speed = 10;
     //private Vector2 mousePosition;
     float horizontal;
@@ -43,10 +42,15 @@ public class SpaceshipController : MonoBehaviour
         }
     }
 
-    public void Move(InputAction.CallbackContext context)
+    public void MoveHorizontal(InputAction.CallbackContext context)
     {
-        var input = context.ReadValue<Vector2>();
-        movement = new Vector3(input.x, input.y);
+        var hor = context.ReadValue<float>();
+        movement = new Vector3(hor, movement.y);
+    }
+    public void MoveVertical(InputAction.CallbackContext context)
+    {
+        var ver = context.ReadValue<float>();
+        movement = new Vector3(movement.x, ver);
     }
     void FixedUpdate()
     {
