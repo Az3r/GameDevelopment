@@ -11,7 +11,7 @@
                     "id": "99426e4f-9166-4e04-9186-e3ae6e506645",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Hold"
                 },
                 {
                     "name": "Focus",
@@ -19,7 +19,7 @@
                     "id": "7b51431c-d1c1-43d9-96ac-ee726ebc55d8",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Hold"
                 },
                 {
                     "name": "Ultimate",
@@ -83,7 +83,7 @@
                     "name": "",
                     "id": "be6b11ff-605c-4141-9ca8-a8dd21775be3",
                     "path": "<Keyboard>/#(Z)",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Shoot",
@@ -96,7 +96,7 @@
                     "path": "<Keyboard>/#(X)",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard",
                     "action": "Focus",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -116,7 +116,7 @@
                     "name": "",
                     "id": "f44bf3e1-3a53-451c-b815-20531b8744c5",
                     "path": "<Keyboard>/f1",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Save",
@@ -127,7 +127,7 @@
                     "name": "",
                     "id": "77625041-423f-436b-89b9-5326e6811582",
                     "path": "<Keyboard>/f2",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Load",
@@ -138,7 +138,7 @@
                     "name": "",
                     "id": "3dc65e3d-61a6-4f58-8bfd-6692cfa2ece9",
                     "path": "<Keyboard>/f5",
-                    "interactions": "Hold",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Help",
@@ -149,7 +149,7 @@
                     "name": "",
                     "id": "e4c9983a-a517-4bb7-ba5e-d920c47b6601",
                     "path": "<Keyboard>/escape",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Pause",
@@ -223,6 +223,12 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Menu",
+            "id": "cfeb48bd-ad29-45db-a565-1bcc11031a55",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [
