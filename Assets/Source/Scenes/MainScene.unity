@@ -269,6 +269,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202548936}
   m_CullTransparentMesh: 0
+--- !u!1 &367319982 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3571653985789172516, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
+    type: 3}
+  m_PrefabInstance: {fileID: 3572565940209127435}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &680985182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,26 +1985,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114113778115583996, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
-        type: 3}
-      propertyPath: boundary.horizontal.x
-      value: -23
-      objectReference: {fileID: 0}
-    - target: {fileID: 114113778115583996, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
-        type: 3}
-      propertyPath: boundary.horizontal.y
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 114113778115583996, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
-        type: 3}
-      propertyPath: boundary.vertical.x
-      value: -12
-      objectReference: {fileID: 0}
-    - target: {fileID: 114113778115583996, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
-        type: 3}
-      propertyPath: boundary.vertical.y
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 3571653985789172516, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
         type: 3}
       propertyPath: m_Name
@@ -2059,6 +2045,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8630677568720362518, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
+        type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630677568720362518, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
+        type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630677568720362518, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
+        type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630677568720362518, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
+        type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 367319982}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5, type: 3}
 --- !u!1001 &4152902078815319495

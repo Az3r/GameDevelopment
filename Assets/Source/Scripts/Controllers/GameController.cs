@@ -11,9 +11,11 @@ public class GameController : MonoBehaviour
     public float spawnWait; //time between 2 hazard spawn
     public float startWait;
     public float waveWait; //time between 2 wave
+
+    private Coroutine coroutine;
     private void Start()
     {
-        StartCoroutine(SpawnWaves());
+        coroutine = StartCoroutine(SpawnWaves());
     }
 
     IEnumerator<WaitForSeconds> SpawnWaves()
@@ -31,5 +33,10 @@ public class GameController : MonoBehaviour
             }
             yield return new WaitForSeconds(waveWait);
         }
+    }
+
+    private void OnDestroy()
+    {
+        StopCoroutine(coroutine);
     }
 }

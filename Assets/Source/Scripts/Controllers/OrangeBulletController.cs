@@ -5,6 +5,7 @@ using UnityEngine;
 public class OrangeBulletController : MonoBehaviour
 {
     public float speed = 15;
+
     new Rigidbody rigidbody;
     // Start is called before the first frame update
     void Start()
@@ -13,12 +14,10 @@ public class OrangeBulletController : MonoBehaviour
         rigidbody.velocity = transform.up * speed;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnBecameInvisible()
     {
-        if (transform.position.magnitude > 20.0f)
-        {
-            Destroy(gameObject);
-        }
+        Debug.Log("Destroy Bullets");
+        Destroy(gameObject);
+
     }
 }

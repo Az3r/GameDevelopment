@@ -6,10 +6,11 @@ using UnityEngine;
 public class SpaceCraft : ScriptableObject
 {
     public float speed;
-    public int reload;
+    // in seconds
+    public float reload;
     public float attack;
     public float defense;
-    public float health;
+    public int health;
     public Material skin;
     public Mesh shape;
 }

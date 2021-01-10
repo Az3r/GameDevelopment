@@ -11,7 +11,7 @@
                     "id": "99426e4f-9166-4e04-9186-e3ae6e506645",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold"
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Focus",

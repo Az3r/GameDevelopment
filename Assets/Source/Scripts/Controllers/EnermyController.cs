@@ -17,6 +17,8 @@ public class EnermyController : MonoBehaviour
     public MovableArea boundary;
     private float currentSpeed;
     private float targetManeuver;
+
+    private Coroutine coroutine;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,13 +27,7 @@ public class EnermyController : MonoBehaviour
         body.velocity = -transform.up * speed;
         currentSpeed = body.velocity.y;
 
-        StartCoroutine(Evade());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        coroutine = StartCoroutine(Evade());
     }
 
     IEnumerator Evade()
@@ -64,5 +60,9 @@ public class EnermyController : MonoBehaviour
             body.velocity.x * -tilt,
             0.0f
         );
+    }
+    private void OnDestroy()
+    {
+        StopCoroutine(coroutine);
     }
 }

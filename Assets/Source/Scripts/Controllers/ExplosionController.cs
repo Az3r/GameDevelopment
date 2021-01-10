@@ -10,10 +10,4 @@ public class ExplosionController : MonoBehaviour
     {
         Object.Destroy(gameObject, lifetime);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

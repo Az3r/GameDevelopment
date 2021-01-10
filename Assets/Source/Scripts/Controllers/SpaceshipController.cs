@@ -19,29 +19,41 @@ public class SpaceshipController : MonoBehaviour
     [Header("Oberserved Fields")]
 
     [SerializeField]
-    private int _shootCooldown;
+    private float _shootCooldown;
     [SerializeField]
     private int _health;
     [SerializeField]
     private Vector2 _movement;
+
+    [SerializeField]
+    private bool _shooting = false;
 
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         GetComponent<MeshRenderer>().material = spacecraft.skin;
+        GetComponent<MeshFilter>().mesh = spacecraft.shape;
         GetComponent<MeshCollider>().sharedMesh = spacecraft.shape;
+        _health = spacecraft.health;
     }
 
     private void Update()
     {
+        Shoot();
+    }
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        _shooting = Mathf.Approximately(1, context.ReadValue<float>());
+    }
+    private void Shoot()
+    {
         // decrease shooting cooldown time
         if (_shootCooldown > 0)
-            _shootCooldown--;
-    }
-    public void Shoot(InputAction.CallbackContext context)
-    {
-        if (_shootCooldown <= 0)
+            _shootCooldown -= Time.deltaTime;
+
+        // shoot!
+        if (_shooting && _shootCooldown <= 0)
         {
             Instantiate(defaultBullet, shotSpawn.position, shotSpawn.rotation);
             _shootCooldown = spacecraft.reload;
@@ -65,15 +77,14 @@ public class SpaceshipController : MonoBehaviour
     {
         rigidbody.velocity = _movement * spacecraft.speed;
 
-        rigidbody.MovePosition(new Vector3
-        (
-            Mathf.Clamp(rigidbody.position.x, boundary.xMin, boundary.xMax),
-            Mathf.Clamp(rigidbody.position.y, boundary.yMin, boundary.yMax),
-            0.0f
-        ));
-
         //Rotation when flight
         rigidbody.rotation = Quaternion.Euler(-90.0f, rigidbody.velocity.x * -tilt, 0.0f);
-    }
 
+        // Clapm object in playground
+        if (rigidbody.velocity.x < 0 && rigidbody.position.x < boundary.xMin || rigidbody.velocity.x > 0 && rigidbody.position.x > boundary.xMax)
+            rigidbody.velocity = new Vector3(0f, rigidbody.velocity.y);
+        if (rigidbody.velocity.y < 0 && rigidbody.position.y < boundary.yMin || rigidbody.velocity.y > 0 && rigidbody.position.y > boundary.yMax)
+            rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f);
+
+    }
 }

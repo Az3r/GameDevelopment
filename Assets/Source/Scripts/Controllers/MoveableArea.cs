@@ -9,5 +9,5 @@ public class MovableArea
     public float xMin => horizontal.x;
     public float xMax => horizontal.y;
     public float yMin => vertical.x;
-    public float yMax => vertical.x;
+    public float yMax => vertical.y;
 }
