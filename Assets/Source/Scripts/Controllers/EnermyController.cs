@@ -14,7 +14,7 @@ public class EnermyController : MonoBehaviour
     public Vector2 startWait;
     public Vector2 maneuverTime;
     public Vector2 maneuverWait;
-    public Boundary boundary;
+    public MovableArea boundary;
     private float currentSpeed;
     private float targetManeuver;
     // Start is called before the first frame update

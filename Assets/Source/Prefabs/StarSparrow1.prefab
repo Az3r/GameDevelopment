@@ -236,7 +236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3571653985789172516}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children:
   - {fileID: 3574620479493830266}
@@ -272,8 +272,7 @@ MeshRenderer:
   m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 3574d5733ac60b941b175932e0a1aa2e, type: 2}
+  m_Materials: []
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -323,7 +322,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4300008, guid: e0f90ad78680d6145b082ac69f7fc504, type: 3}
+  m_Mesh: {fileID: 0}
 --- !u!114 &8630677568720362518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,7 +385,18 @@ MonoBehaviour:
     m_ActionId: 2e2ad417-6324-45c0-9f58-4f6619f66964
     m_ActionName: Player/Help[/Keyboard/f5]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114113778115583996}
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6ff2a1f9-842d-42bd-9464-a905936c6bca
     m_ActionName: Player/Pause[/Keyboard/escape]
   - m_PersistentCalls:
@@ -420,7 +430,7 @@ MonoBehaviour:
     m_ActionId: 1100718b-53c8-46e9-b0f7-8aa5e7dae57d
     m_ActionName: Player/MoveHorizontal[/Keyboard/leftArrow,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard
+  m_DefaultControlScheme: KeyboardMouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -436,17 +446,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d36400926e1c04cac61182d7c51b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  spacecraft: {fileID: 11400000, guid: 032cd0dd87ba7f7459ae7514a1e00063, type: 2}
   tilt: 3
   boundary:
-    xMin: -29
-    xMax: 29
-    yMin: -11
-    yMax: 11
+    horizontal: {x: -8, y: 8}
+    vertical: {x: -5, y: 5}
   defaultBullet: {fileID: 8791003795431289964, guid: 1c0c2cbe51dd8bc4a91c06a56313587c,
     type: 3}
   shotSpawn: {fileID: 1158420344}
-  fireRate: 0.2
+  _shootCooldown: 0
+  _health: 0
+  _movement: {x: 0, y: 0}
 --- !u!1 &3572003710089513474
 GameObject:
   m_ObjectHideFlags: 0

@@ -1979,10 +1979,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114113778115583996, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
+        type: 3}
+      propertyPath: boundary.horizontal.x
+      value: -23
+      objectReference: {fileID: 0}
+    - target: {fileID: 114113778115583996, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
+        type: 3}
+      propertyPath: boundary.horizontal.y
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 114113778115583996, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
+        type: 3}
+      propertyPath: boundary.vertical.x
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114113778115583996, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
+        type: 3}
+      propertyPath: boundary.vertical.y
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3571653985789172516, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
         type: 3}
       propertyPath: m_Name
-      value: StarSparrow1
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3574606236179562780, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
         type: 3}
@@ -1992,12 +2012,12 @@ PrefabInstance:
     - target: {fileID: 3574606236179562780, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.68
+      value: 1.29
       objectReference: {fileID: 0}
     - target: {fileID: 3574606236179562780, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3574606236179562780, guid: 3609d0b74db1ecf4683fc11d9c5e6ff5,
         type: 3}
