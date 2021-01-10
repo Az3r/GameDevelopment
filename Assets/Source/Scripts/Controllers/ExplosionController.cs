@@ -8,12 +8,12 @@ public class ExplosionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DestroyObject(gameObject, lifetime);
+        Object.Destroy(gameObject, lifetime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

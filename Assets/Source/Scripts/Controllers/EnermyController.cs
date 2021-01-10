@@ -6,7 +6,7 @@ public class EnermyController : MonoBehaviour
 {
     public float speed;
 
-    private Rigidbody rigidbody;
+    private Rigidbody body;
 
     public float dodge;
     public float smoothing;
@@ -14,16 +14,16 @@ public class EnermyController : MonoBehaviour
     public Vector2 startWait;
     public Vector2 maneuverTime;
     public Vector2 maneuverWait;
-    public Boundary boundary;
+    public MovableArea boundary;
     private float currentSpeed;
     private float targetManeuver;
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        body = GetComponent<Rigidbody>();
 
-        rigidbody.velocity = - transform.up * speed;
-        currentSpeed = rigidbody.velocity.y;
+        body.velocity = -transform.up * speed;
+        currentSpeed = body.velocity.y;
 
         StartCoroutine(Evade());
     }
@@ -31,7 +31,7 @@ public class EnermyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     IEnumerator Evade()
@@ -49,19 +49,19 @@ public class EnermyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float newManeuver = Mathf.MoveTowards(rigidbody.velocity.x, targetManeuver, Time.deltaTime * smoothing);
-        rigidbody.velocity = new Vector3(newManeuver, 0.0f, currentSpeed);
+        float newManeuver = Mathf.MoveTowards(body.velocity.x, targetManeuver, Time.deltaTime * smoothing);
+        body.velocity = new Vector3(newManeuver, 0.0f, currentSpeed);
 
-        rigidbody.position = new Vector3(
-            Mathf.Clamp(rigidbody.position.x, boundary.xMin, boundary.xMax),
+        body.position = new Vector3(
+            Mathf.Clamp(body.position.x, boundary.xMin, boundary.xMax),
             0.0f,
-            Mathf.Clamp(rigidbody.position.z, boundary.yMin, boundary.yMax)
+            Mathf.Clamp(body.position.z, boundary.yMin, boundary.yMax)
         );
 
-        rigidbody.rotation = Quaternion.Euler(
+        body.rotation = Quaternion.Euler(
             0.0f,
-            
-            rigidbody.velocity.x * -tilt,
+
+            body.velocity.x * -tilt,
             0.0f
         );
     }

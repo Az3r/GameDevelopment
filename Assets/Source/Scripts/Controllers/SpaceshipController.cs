@@ -3,55 +3,67 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-[System.Serializable]
-public class Boundary
-{
-    public float xMin = -8, xMax = 8, yMin = -5, yMax = 5;
-}
 
 public class SpaceshipController : MonoBehaviour
 {
-    public InputManager controller;
-    public float speed = 10;
-    //private Vector2 mousePosition;
-    float horizontal;
-    float vertical;
-    new Rigidbody rigidbody;
+    public SpaceCraft spacecraft;
     public float tilt = 3;
 
-    public Boundary boundary;
+    public MovableArea boundary;
 
     public GameObject defaultBullet;
     public Transform shotSpawn;
 
-    public float fireRate = 0.2f;
+    private new Rigidbody rigidbody;
 
-    private float nextFire;
-    private Vector2 movement;
+    [Header("Oberserved Fields")]
 
-    // Start is called before the first frame update
+    [SerializeField]
+    private int _shootCooldown;
+    [SerializeField]
+    private int _health;
+    [SerializeField]
+    private Vector2 _movement;
+
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        GetComponent<MeshRenderer>().material = spacecraft.skin;
+        GetComponent<MeshCollider>().sharedMesh = spacecraft.shape;
+    }
+
+    private void Update()
+    {
+        // decrease shooting cooldown time
+        if (_shootCooldown > 0)
+            _shootCooldown--;
     }
     public void Shoot(InputAction.CallbackContext context)
     {
-        if (Time.time > nextFire)
+        if (_shootCooldown <= 0)
         {
-            nextFire = Time.time + fireRate;
             Instantiate(defaultBullet, shotSpawn.position, shotSpawn.rotation);
+            _shootCooldown = spacecraft.reload;
         }
     }
 
-    public void Move(InputAction.CallbackContext context)
+    public void Pause(InputAction.CallbackContext context)
     {
-        var input = context.ReadValue<Vector2>();
-        movement = new Vector3(input.x, input.y);
+        Debug.Log("Game Paused");
+    }
+
+    public void MoveHorizontal(InputAction.CallbackContext context)
+    {
+        _movement = new Vector3(context.ReadValue<float>(), _movement.y);
+    }
+    public void MoveVertical(InputAction.CallbackContext context)
+    {
+        _movement = new Vector3(_movement.x, context.ReadValue<float>());
     }
     void FixedUpdate()
     {
-        //Input.GetAxis("Vertical");
-        rigidbody.velocity = movement * speed;
+        rigidbody.velocity = _movement * spacecraft.speed;
 
         rigidbody.MovePosition(new Vector3
         (

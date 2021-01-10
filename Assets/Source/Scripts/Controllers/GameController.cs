@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(SpawnWaves());
     }
 
-    IEnumerator SpawnWaves()
+    IEnumerator<WaitForSeconds> SpawnWaves()
     {
         yield return new WaitForSeconds(startWait);
         while (true)

@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour
 {
-	public float scrollSpeed;
-	private float tileSizeY;
+    public Vector2 speed;
+    private Material material;
 
-	private Vector3 startPosition;
+    void Start()
+    {
+        material = GetComponent<MeshRenderer>().material;
+    }
 
-	void Start()
-	{
-		startPosition = transform.position;
-		tileSizeY = transform.localScale.x/10;
-	}
-
-	void Update()
-	{
-		float newPosition = Mathf.Repeat(Time.time * scrollSpeed, tileSizeY);
-		transform.position = startPosition - Vector3.up * newPosition;
-	}
+    void Update()
+    {
+        material.mainTextureOffset += speed * Time.deltaTime;
+    }
 }
