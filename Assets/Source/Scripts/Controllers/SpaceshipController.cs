@@ -6,15 +6,18 @@ using UnityEngine.InputSystem;
 
 public class SpaceshipController : MonoBehaviour
 {
-    public SpaceCraft spacecraft;
+    public SpaceCraft meta;
     public float tilt = 3;
 
     public MovableArea boundary;
 
-    public GameObject defaultBullet;
-    public Transform shotSpawn;
+    public GameObject bullet;
+    public Transform gun;
 
     private new Rigidbody rigidbody;
+    private MeshFilter shape;
+    private MeshRenderer color;
+    private new MeshCollider collider;
 
     [Header("Oberserved Fields")]
 
@@ -32,10 +35,10 @@ public class SpaceshipController : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        GetComponent<MeshRenderer>().material = spacecraft.skin;
-        GetComponent<MeshFilter>().mesh = spacecraft.shape;
-        GetComponent<MeshCollider>().sharedMesh = spacecraft.shape;
-        _health = spacecraft.health;
+        shape = GetComponent<MeshFilter>();
+        color = GetComponent<MeshRenderer>();
+        collider = GetComponent<MeshCollider>();
+        _health = meta.health;
     }
 
     private void Update()
@@ -55,8 +58,8 @@ public class SpaceshipController : MonoBehaviour
         // shoot!
         if (_shooting && _shootCooldown <= 0)
         {
-            Instantiate(defaultBullet, shotSpawn.position, shotSpawn.rotation);
-            _shootCooldown = spacecraft.reload;
+            Instantiate(bullet, gun.position, gun.rotation);
+            _shootCooldown = meta.reload;
         }
     }
 
@@ -75,7 +78,7 @@ public class SpaceshipController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        rigidbody.velocity = _movement * spacecraft.speed;
+        rigidbody.velocity = _movement * meta.speed;
 
         //Rotation when flight
         rigidbody.rotation = Quaternion.Euler(-90.0f, rigidbody.velocity.x * -tilt, 0.0f);
@@ -85,6 +88,15 @@ public class SpaceshipController : MonoBehaviour
             rigidbody.velocity = new Vector3(0f, rigidbody.velocity.y);
         if (rigidbody.velocity.y < 0 && rigidbody.position.y < boundary.yMin || rigidbody.velocity.y > 0 && rigidbody.position.y > boundary.yMax)
             rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f);
+    }
 
+    public void SetShape(Mesh mesh)
+    {
+        this.shape.mesh = mesh;
+        this.collider.sharedMesh = mesh;
+    }
+    public void SetColor(Material color)
+    {
+        this.color.material = color;
     }
 }
