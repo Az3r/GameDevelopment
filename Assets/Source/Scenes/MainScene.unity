@@ -661,7 +661,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 0, y: 0}
-  material: {fileID: 0}
 --- !u!1001 &966775595
 PrefabInstance:
   m_ObjectHideFlags: 0
