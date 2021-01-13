@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BackgroundScroller : MonoBehaviour
+public class ScrollBackground : MonoBehaviour
 {
     public Vector2 speed;
     private Material material;

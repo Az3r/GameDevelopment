@@ -23,8 +23,10 @@ public class SpaceshipController : MonoBehaviour
 
     [SerializeField]
     private float _shootCooldown;
+    //Health
     [SerializeField]
-    private int _health;
+    private int _maxHealth;
+    private int _currentHealth;
     [SerializeField]
     private Vector2 _movement;
 
@@ -38,7 +40,9 @@ public class SpaceshipController : MonoBehaviour
         shape = GetComponent<MeshFilter>();
         color = GetComponent<MeshRenderer>();
         collider = GetComponent<MeshCollider>();
-        _health = meta.health;
+        _maxHealth = meta.health;
+        _currentHealth = _maxHealth;
+        Debug.Log(_currentHealth + "/" + _maxHealth);
     }
 
     private void Update()
@@ -98,5 +102,28 @@ public class SpaceshipController : MonoBehaviour
     public void SetColor(Material color)
     {
         this.color.material = color;
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            if (_currentHealth > 0) //
+            {
+                ReSpawn();
+            }
+            else
+            {
+                //gameover
+                Debug.Log("Game Over");
+            }
+        }
+        _currentHealth = Mathf.Clamp(_currentHealth + amount, 0, _maxHealth);
+        Debug.Log(_currentHealth + "/" + _maxHealth);
+    }
+
+    public void ReSpawn()
+    {
+        transform.position = new Vector3(0, -6);
     }
 }

@@ -33,9 +33,14 @@ public class AsteroidController : MonoBehaviour
         Instantiate(explosion, transform.position, transform.rotation);
         if (other.tag == "Player")
         {
+            SpaceshipController spaceship = other.GetComponent<SpaceshipController>();
+            if(spaceship != null)
+            {
+                spaceship.ChangeHealth(-1);
+            }
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
         }
-        Destroy(other.gameObject);
+        //Destroy(other.gameObject);
         Destroy(gameObject);
     }
 }

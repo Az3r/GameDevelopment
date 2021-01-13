@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrangeBulletController : MonoBehaviour
+public class BulletController : MonoBehaviour
 {
     public float speed = 15;
 

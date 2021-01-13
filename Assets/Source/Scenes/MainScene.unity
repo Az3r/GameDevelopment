@@ -674,7 +674,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f8b8bdac1653996409313a0210a0ec86, type: 2}
+  - {fileID: 2100000, guid: f75c14cb803dcbb4ab132aaefa7b962c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -729,7 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d51d18041de0240849d0eb7529091d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 0, y: 0.1}
+  speed: {x: 0, y: 0}
 --- !u!1001 &966775595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2048,21 +2048,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 154842246956180188, guid: 5c03dee41e16bde4abdcc1907d0369ca,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 154842246956180188, guid: 5c03dee41e16bde4abdcc1907d0369ca,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 154842246956180188, guid: 5c03dee41e16bde4abdcc1907d0369ca,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
-      objectReference: {fileID: 0}
     - target: {fileID: 5553181063343423500, guid: 5c03dee41e16bde4abdcc1907d0369ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2076,7 +2061,7 @@ PrefabInstance:
     - target: {fileID: 5553181063343423500, guid: 5c03dee41e16bde4abdcc1907d0369ca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.5459538
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5553181063343423500, guid: 5c03dee41e16bde4abdcc1907d0369ca,
         type: 3}
@@ -2123,12 +2108,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8632356536891330831, guid: 5c03dee41e16bde4abdcc1907d0369ca,
-        type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 8791003795431289964, guid: 1c0c2cbe51dd8bc4a91c06a56313587c,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c03dee41e16bde4abdcc1907d0369ca, type: 3}
 --- !u!1001 &4152902078815319495
@@ -2146,7 +2125,7 @@ PrefabInstance:
     - target: {fileID: 4479017902549628281, guid: 67a6952094f38b149a29e3a5c4f80720,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.08
+      value: -7.06
       objectReference: {fileID: 0}
     - target: {fileID: 4479017902549628281, guid: 67a6952094f38b149a29e3a5c4f80720,
         type: 3}
