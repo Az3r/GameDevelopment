@@ -133,6 +133,10 @@ PrefabInstance:
       propertyPath: m_DefaultActionMap
       value: cfeb48bd-ad29-45db-a565-1bcc11031a55
       objectReference: {fileID: 0}
+    - target: {fileID: 1343003823, guid: 5c03dee41e16bde4abdcc1907d0369ca, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4646607923336091235, guid: 5c03dee41e16bde4abdcc1907d0369ca,
         type: 3}
       propertyPath: m_Mesh
@@ -566,6 +570,10 @@ PrefabInstance:
       propertyPath: m_DefaultActionMap
       value: cfeb48bd-ad29-45db-a565-1bcc11031a55
       objectReference: {fileID: 0}
+    - target: {fileID: 1343003823, guid: 5c03dee41e16bde4abdcc1907d0369ca, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4646607923336091235, guid: 5c03dee41e16bde4abdcc1907d0369ca,
         type: 3}
       propertyPath: m_Mesh
@@ -664,6 +672,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_DefaultActionMap
       value: cfeb48bd-ad29-45db-a565-1bcc11031a55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343003823, guid: 5c03dee41e16bde4abdcc1907d0369ca, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4646607923336091235, guid: 5c03dee41e16bde4abdcc1907d0369ca,
         type: 3}
@@ -1462,6 +1474,10 @@ PrefabInstance:
       propertyPath: m_DefaultActionMap
       value: cfeb48bd-ad29-45db-a565-1bcc11031a55
       objectReference: {fileID: 0}
+    - target: {fileID: 1343003823, guid: 5c03dee41e16bde4abdcc1907d0369ca, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4646607923336091235, guid: 5c03dee41e16bde4abdcc1907d0369ca,
         type: 3}
       propertyPath: m_Mesh
@@ -1556,6 +1572,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1721904167}
     m_Modifications:
+    - target: {fileID: -3577631412165350174, guid: 5c03dee41e16bde4abdcc1907d0369ca,
+        type: 3}
+      propertyPath: m_DefaultActionMap
+      value: cfeb48bd-ad29-45db-a565-1bcc11031a55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343003823, guid: 5c03dee41e16bde4abdcc1907d0369ca, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5553181063343423500, guid: 5c03dee41e16bde4abdcc1907d0369ca,
         type: 3}
       propertyPath: m_LocalPosition.x

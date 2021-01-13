@@ -248,7 +248,7 @@ MonoBehaviour:
     m_ActionName: Player/MoveHorizontal[/Keyboard/leftArrow,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: KeyboardMouse
-  m_DefaultActionMap: Menu
+  m_DefaultActionMap: 3aebb382-c5f8-4fb2-98e3-19eb99687539
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &8632356536891330831
