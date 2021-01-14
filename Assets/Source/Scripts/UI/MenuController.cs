@@ -42,7 +42,7 @@ public class MenuController : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("ShopScene");
     }
 
     public void ExitGame()

@@ -1,6 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class ShopController : MonoBehaviour
 {
@@ -8,10 +10,11 @@ public class ShopController : MonoBehaviour
 
     public List<GameObject> models;
 
-    private GameObject current;
     [Header("Observed Fields")]
     [SerializeField]
     private int index;
+    [SerializeField]
+    private GameObject current;
 
 
     private void Awake()
@@ -36,11 +39,19 @@ public class ShopController : MonoBehaviour
 
     private void GetModel(int i)
     {
+        // display new model and continue to rotate with an angle from old model
         var rotation = current.transform.rotation;
         index = i % models.Count;
         current.SetActive(false);
         current = models[index];
         current.SetActive(true);
         current.transform.rotation = rotation;
+    }
+
+    public void StartGame(int stage)
+    {
+        // save selected index to global state
+        GlobalState.Instance.selectedModelIndex = index;
+        SceneManager.LoadScene("MainScene");
     }
 }
