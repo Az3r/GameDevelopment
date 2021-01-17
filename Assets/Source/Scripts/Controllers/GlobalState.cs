@@ -18,26 +18,29 @@ public class GlobalState : MonoBehaviour
     {
         Instance = this;
         DontDestroyOnLoad(this);
+        LoadSaveFiles();
     }
 
     private void Start()
     {
-        LoadSaveFiles();
     }
 
     private void LoadSaveFiles()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 5; i++)
         {
             saveds.Add(null);
         }
-        if (Directory.Exists("saves"))
+
+        if (!Directory.Exists("saves"))
+            Directory.CreateDirectory("saves");
+        foreach (var file in Directory.EnumerateFiles("saves"))
         {
-            foreach (var file in Directory.EnumerateFiles("saves"))
-            {
-                var data = SavedData.Load(file);
-                saveds[data.slot] = data;
-            }
+            var data = SavedData.Load(file);
+            saveds[data.slot] = data;
         }
+
+        if (saveds[0] is null)
+            saveds[0] = SavedData.Default();
     }
 }

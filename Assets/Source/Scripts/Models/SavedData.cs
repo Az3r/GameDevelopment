@@ -27,6 +27,19 @@ public class SavedData
             return null;
         }
     }
+    public static SavedData Default()
+    {
+        return new SavedData()
+        {
+            attackLevel = 0,
+            healthLevel = 0,
+            reloadLevel = 0,
+            money = 0,
+            currentStage = 1,
+            slot = 0,
+            modelIndex = 0
+        };
+    }
     public bool Save(int slot)
     {
         try

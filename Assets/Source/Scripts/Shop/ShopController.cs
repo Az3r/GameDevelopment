@@ -14,7 +14,7 @@ public class ShopController : MonoBehaviour
     public TextMeshProUGUI reloadCost;
     public TextMeshProUGUI attackCost;
     public TextMeshProUGUI healthCost;
-    public TextMeshProUGUI currency;
+    public TextMeshProUGUI money;
     public TextMeshProUGUI reloadLevel;
     public TextMeshProUGUI attackLevel;
     public TextMeshProUGUI healthLevel;
@@ -50,8 +50,21 @@ public class ShopController : MonoBehaviour
 
         // setup shop session
         var progress = GlobalState.Instance.currentProgress;
+        var data = GlobalState.Instance.gameData;
 
+        reloadButton.interactable = progress.reloadLevel < data.reloadCost.Count;
+        attackButton.interactable = progress.attackLevel < data.attackCost.Count;
+        healthButton.interactable = progress.healthLevel < data.healthCost.Count;
 
+        reloadLevel.text = progress.reloadLevel >= data.reloadCost.Count ? "Max Level" : $"Level {progress.reloadLevel + 1}";
+        attackLevel.text = progress.attackLevel >= data.attackCost.Count ? "Max Level" : $"Level {progress.attackLevel + 1}";
+        healthLevel.text = progress.healthLevel >= data.healthCost.Count ? "Max Level" : $"Level {progress.healthLevel + 1}";
+
+        reloadCost.text = data.reloadCost[Mathf.Min(progress.reloadLevel, data.reloadCost.Count - 1)].ToString();
+        attackCost.text = data.attackCost[Mathf.Min(progress.attackLevel, data.attackCost.Count - 1)].ToString();
+        healthCost.text = data.healthCost[Mathf.Min(progress.healthLevel, data.healthCost.Count - 1)].ToString();
+
+        money.text = progress.money.ToString();
     }
     private void Update()
     {
