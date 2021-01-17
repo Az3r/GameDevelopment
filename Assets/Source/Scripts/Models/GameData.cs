@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class GameData
+[CreateAssetMenu(menuName = "Game Data", fileName = "GameData")]
+public class GameData : ScriptableObject
 {
-    public int selectedModelIndex = 0;
-    public int levelCount = 1;
-    public int currentLevel = 1;
+    public int maxLevel;
+    public List<int> attackCost;
+    public List<int> reloadCost;
+    public List<int> healthCost;
 }

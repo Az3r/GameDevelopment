@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
@@ -14,8 +15,17 @@ public class MenuController : MonoBehaviour
 
     public List<GameObject> fullScreenToggle;
     public List<GameObject> menus;
+
+    public GameObject resumeButton;
+    private void Awake()
+    {
+        // make framerate fixed
+        Application.targetFrameRate = 60;
+    }
     private void Start()
     {
+        resumeButton.SetActive(GlobalState.Instance.currentProgress != null);
+
         graphics.value = QualitySettings.GetQualityLevel();
 
         // fullscreen

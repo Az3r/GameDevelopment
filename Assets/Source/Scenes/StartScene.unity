@@ -3587,6 +3587,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1007675508}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1016036365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3466361472662347332, guid: 94b4e283ad4ae5e42a1b2f3991fdcaa5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1729204930}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1068692545
 GameObject:
   m_ObjectHideFlags: 0
@@ -3758,9 +3764,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0727b4d653a70a444b98b79e2f9dd03d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameData: {fileID: 11400000, guid: 9c902120fcbedcb4bbfaf559c282cfd5, type: 2}
   spacecrafts:
   - {fileID: 5553181063343594540, guid: 5c03dee41e16bde4abdcc1907d0369ca, type: 3}
   selectedModelIndex: 0
+  saveds: []
 --- !u!4 &1105718232
 Transform:
   m_ObjectHideFlags: 0
@@ -6454,6 +6462,11 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3466361472662347330, guid: 94b4e283ad4ae5e42a1b2f3991fdcaa5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3466361472662347331, guid: 94b4e283ad4ae5e42a1b2f3991fdcaa5,
         type: 3}
       propertyPath: m_Sprite
@@ -6787,6 +6800,7 @@ MonoBehaviour:
   - {fileID: 707204738}
   - {fileID: 1169107349}
   - {fileID: 2036153387}
+  resumeButton: {fileID: 1016036365}
 --- !u!1 &1918576611
 GameObject:
   m_ObjectHideFlags: 0
