@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Game Data", fileName = "GameData")]
+[System.Serializable]
 public class GameData : ScriptableObject
 {
     public int maxLevel;

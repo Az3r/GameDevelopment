@@ -14,19 +14,6 @@ public class SavedData
     public int healthLevel;
     public int reloadLevel;
 
-    public static SavedData Load(string name)
-    {
-        try
-        {
-            var path = Path.Combine("saves", name);
-            var json = File.ReadAllText(path);
-            return JsonUtility.FromJson<SavedData>(json);
-        }
-        catch (System.Exception)
-        {
-            return null;
-        }
-    }
     public static SavedData Default()
     {
         return new SavedData()
@@ -37,22 +24,37 @@ public class SavedData
             money = 0,
             currentStage = 1,
             slot = 0,
-            modelIndex = 0
+            modelIndex = -1
         };
     }
-    public bool Save(int slot)
+    public bool Save()
     {
         try
         {
-            this.slot = slot;
-            var path = Path.Combine("saves", slot.ToString("###"));
+            var path = Path.Combine(Application.dataPath, "saves", $"{slot}.json");
             var json = JsonUtility.ToJson(this);
             File.WriteAllText(path, json);
+
+            Debug.Log($"Save slot {slot} suffessfully");
             return true;
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError(e.Message);
+            return false;
+        }
+    }
+    public static SavedData Load(string name)
+    {
+        try
+        {
+            var path = Path.Combine(Application.dataPath, "saves", name);
+            var json = File.ReadAllText(path);
+            return JsonUtility.FromJson<SavedData>(json);
         }
         catch (System.Exception)
         {
-            return false;
+            return null;
         }
     }
 }

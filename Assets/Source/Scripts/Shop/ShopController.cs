@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Threading.Tasks;
+using System.IO;
 using TMPro;
 
 public class ShopController : MonoBehaviour
 {
     public GameObject shopSession;
     public GameObject selectSession;
+    public GameObject saveLoadSession;
     public Button backButton;
     public Button nextButton;
+    public Image currentStage;
+    public TextMeshProUGUI saveLoadLabel;
     public TextMeshProUGUI reloadCost;
     public TextMeshProUGUI attackCost;
     public TextMeshProUGUI healthCost;
@@ -31,6 +36,10 @@ public class ShopController : MonoBehaviour
     private int index;
     [SerializeField]
     private GameObject current;
+    [SerializeField]
+    private SavedData progress;
+    [SerializeField]
+    private GameData data;
 
 
     private void Awake()
@@ -49,8 +58,14 @@ public class ShopController : MonoBehaviour
         current = models[index];
 
         // setup shop session
-        var progress = GlobalState.Instance.currentProgress;
-        var data = GlobalState.Instance.gameData;
+        progress = GlobalState.Instance.CurrentProgress;
+        data = GlobalState.Instance.gameData;
+
+        // Display proper session depending on player progress
+        var isNewGame = progress.modelIndex < 0;
+        selectSession.SetActive(isNewGame);
+        shopSession.SetActive(!isNewGame);
+        saveLoadSession.SetActive(false);
 
         reloadButton.interactable = progress.reloadLevel < data.reloadCost.Count;
         attackButton.interactable = progress.attackLevel < data.attackCost.Count;
@@ -65,13 +80,8 @@ public class ShopController : MonoBehaviour
         healthCost.text = data.healthCost[Mathf.Min(progress.healthLevel, data.healthCost.Count - 1)].ToString();
 
         money.text = progress.money.ToString();
+        currentStage.sprite = stageImages[progress.currentStage - 1];
     }
-    private void Update()
-    {
-        backButton.interactable = index > 0;
-        nextButton.interactable = index < models.Count - 1;
-    }
-
     public void NextModel() => GetModel(index + 1);
     public void PreviousModel() => GetModel(index - 1);
 
@@ -87,18 +97,38 @@ public class ShopController : MonoBehaviour
         current = models[index];
         current.SetActive(true);
         current.transform.rotation = rotation;
+
+        // Make sure NextButton is disabled at last model,
+        // and BackButton is disabled at first model
+        backButton.interactable = index > 0;
+        nextButton.interactable = index < models.Count - 1;
     }
 
     public void ToShopSession()
     {
+        // from model selection
+        // save selected model index to global state
+        GlobalState.Instance.CurrentProgress.modelIndex = index;
+        progress.Save();
+
         shopSession.SetActive(true);
         selectSession.SetActive(false);
     }
 
-    public void StartGame(int stage)
+    public void StartGame()
     {
-        // save selected index to global state
-        GlobalState.Instance.selectedModelIndex = index;
         SceneManager.LoadScene("MainScene");
     }
+    public void QuitToStartMenu()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
+
+    public void OpenSaveLoadSession(bool saving)
+    {
+        saveLoadSession.SetActive(true);
+        shopSession.SetActive(false);
+        saveLoadLabel.text = saving ? "Select a file you wish to save" : "Select a file to load your game";
+    }
+
 }

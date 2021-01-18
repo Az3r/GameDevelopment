@@ -270,7 +270,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9146313}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 235161365}
+        m_MethodName: QuitToStartMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9146313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,7 +862,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 130722205}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 235161365}
+        m_MethodName: OpenSaveLoadSession
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &130722205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1160,8 +1182,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopSession: {fileID: 419372930}
   selectSession: {fileID: 905501990}
+  saveLoadSession: {fileID: 1480817725}
   backButton: {fileID: 1158172425}
   nextButton: {fileID: 1838723018}
+  currentStage: {fileID: 852488506}
+  saveLoadLabel: {fileID: 1973787085}
   reloadCost: {fileID: 1216261394}
   attackCost: {fileID: 1970304304}
   healthCost: {fileID: 1074132576}
@@ -6277,7 +6302,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1528223918}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 235161365}
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1528223918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7448,7 +7484,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1902675168}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 235161365}
+        m_MethodName: OpenSaveLoadSession
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1902675168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8882,7 +8929,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 27a5ab6c817fdec4b835c9050514fa5e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 295c7111297118d418ae4e0e831dc078, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

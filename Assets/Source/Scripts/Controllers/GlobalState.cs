@@ -10,7 +10,11 @@ public class GlobalState : MonoBehaviour
     public GameObject[] spacecrafts;
     public GameObject SelectedSpaceCraft => spacecrafts[selectedModelIndex];
     public int selectedModelIndex = 0;
-    public SavedData currentProgress => saveds[0];
+    public SavedData CurrentProgress
+    {
+        get => saveds[0];
+        set => saveds[0] = value;
+    }
 
     public List<SavedData> saveds = new List<SavedData>(5);
 
@@ -32,15 +36,14 @@ public class GlobalState : MonoBehaviour
             saveds.Add(null);
         }
 
-        if (!Directory.Exists("saves"))
-            Directory.CreateDirectory("saves");
-        foreach (var file in Directory.EnumerateFiles("saves"))
+        var path = Path.Combine(Application.dataPath, "saves");
+        if (!Directory.Exists(path))
+            Directory.CreateDirectory(path);
+        foreach (var file in Directory.EnumerateFiles(path))
         {
             var data = SavedData.Load(file);
             saveds[data.slot] = data;
         }
-
-        if (saveds[0] is null)
-            saveds[0] = SavedData.Default();
+        if (CurrentProgress is null) CurrentProgress = SavedData.Default();
     }
 }

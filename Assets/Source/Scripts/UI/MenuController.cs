@@ -15,16 +15,23 @@ public class MenuController : MonoBehaviour
 
     public List<GameObject> fullScreenToggle;
     public List<GameObject> menus;
+    public GameObject globalState;
 
     public GameObject resumeButton;
     private void Awake()
     {
         // make framerate fixed
         Application.targetFrameRate = 60;
+
+        // check if there is already a GlobalState object (when user return from ShopScene)
+        if (FindObjectOfType<GlobalState>() == null)
+        {
+            Instantiate(globalState, Vector3.zero, Quaternion.identity);
+        }
     }
     private void Start()
     {
-        resumeButton.SetActive(GlobalState.Instance.currentProgress != null);
+        resumeButton.SetActive(GlobalState.Instance.CurrentProgress.modelIndex >= 0);
 
         graphics.value = QualitySettings.GetQualityLevel();
 
@@ -51,6 +58,11 @@ public class MenuController : MonoBehaviour
         resolutions.value = currentIndex;
     }
     public void StartGame()
+    {
+        GlobalState.Instance.CurrentProgress = SavedData.Default();
+        SceneManager.LoadScene("ShopScene");
+    }
+    public void ResumeGame()
     {
         SceneManager.LoadScene("ShopScene");
     }
