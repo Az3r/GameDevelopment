@@ -27,19 +27,20 @@ public class ShopController : MonoBehaviour
     public Button attackButton;
     public Button healthButton;
     public List<Sprite> stageImages;
-
-
+    public List<Button> saveSlots;
     public List<GameObject> models;
 
     [Header("Observed Fields")]
     [SerializeField]
-    private int index;
+    private int selectableModelIndex;
+    [SerializeField]
+    private bool inSaveSession;
     [SerializeField]
     private GameObject current;
     [SerializeField]
-    private SavedData progress;
+    private SavedData progress => GlobalState.Instance.CurrentProgress;
     [SerializeField]
-    private GameData data;
+    private GameData data => GlobalState.Instance.gameData;
 
 
     private void Awake()
@@ -54,13 +55,15 @@ public class ShopController : MonoBehaviour
         {
             model.SetActive(false);
         }
-        models[index].SetActive(true);
-        current = models[index];
+        models[selectableModelIndex].SetActive(true);
+        current = models[selectableModelIndex];
 
         // setup shop session
-        progress = GlobalState.Instance.CurrentProgress;
-        data = GlobalState.Instance.gameData;
+        SetupShopGUI();
 
+    }
+    public void SetupShopGUI()
+    {
         // Display proper session depending on player progress
         var isNewGame = progress.modelIndex < 0;
         selectSession.SetActive(isNewGame);
@@ -82,37 +85,112 @@ public class ShopController : MonoBehaviour
         money.text = progress.money.ToString();
         currentStage.sprite = stageImages[progress.currentStage - 1];
     }
-    public void NextModel() => GetModel(index + 1);
-    public void PreviousModel() => GetModel(index - 1);
+    public void SetupSaveLoadGUI()
+    {
+        saveLoadSession.SetActive(true);
+        shopSession.SetActive(false);
+
+        // update GUI
+        saveLoadLabel.text = inSaveSession ? "Select a file you wish to save" : "Select a file to load your game";
+        for (int i = 0; i < saveSlots.Count; i++)
+        {
+            var button = saveSlots[i];
+            var slot = GlobalState.Instance.saveds[i + 1];
+            var slotIsUsed = slot != null;
+            button.interactable = inSaveSession || slotIsUsed;
+
+            // unsaved child, when the slot hasn't been used yet
+            var saved = button.transform.GetChild(0).gameObject;
+            saved.SetActive(!slotIsUsed);
+            saved.GetComponent<TextMeshProUGUI>().text = $"Slot {i + 1} is empty";
+
+            // if the slot has been used, display the saved stage and time
+            var unsaved = button.transform.GetChild(1).gameObject;
+            unsaved.SetActive(slotIsUsed);
+            if (slot != null)
+            {
+                unsaved.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = $"Stage {slot.currentStage}";
+                unsaved.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = slot.savedTimeStr;
+            }
+        }
+
+    }
+    public void NextModel() => GetModel(selectableModelIndex + 1);
+    public void PreviousModel() => GetModel(selectableModelIndex - 1);
 
     private void GetModel(int i)
     {
         // No more out of range exception
         Mathf.Clamp(0, i, models.Count);
-        index = i % models.Count;
+        selectableModelIndex = i % models.Count;
 
         // display new model and continue to rotate with an angle from old model
         var rotation = current.transform.rotation;
         current.SetActive(false);
-        current = models[index];
+        current = models[selectableModelIndex];
         current.SetActive(true);
         current.transform.rotation = rotation;
 
         // Make sure NextButton is disabled at last model,
         // and BackButton is disabled at first model
-        backButton.interactable = index > 0;
-        nextButton.interactable = index < models.Count - 1;
+        backButton.interactable = selectableModelIndex > 0;
+        nextButton.interactable = selectableModelIndex < models.Count - 1;
     }
 
-    public void ToShopSession()
+    public void SelectSessionToShopSession()
     {
         // from model selection
         // save selected model index to global state
-        GlobalState.Instance.CurrentProgress.modelIndex = index;
-        progress.Save();
+        GlobalState.Instance.CurrentProgress.modelIndex = selectableModelIndex;
+        progress.SaveToFile();
 
         shopSession.SetActive(true);
         selectSession.SetActive(false);
+    }
+    public void SaveLoadSessionToShopSession()
+    {
+        shopSession.SetActive(true);
+        saveLoadSession.SetActive(false);
+        SetupShopGUI();
+    }
+    public void OpenSaveLoadSession(bool saving)
+    {
+        this.inSaveSession = saving;
+        SetupSaveLoadGUI();
+    }
+
+    public void OnSlotSelected(int slot)
+    {
+        if (inSaveSession) SaveFile(slot);
+        else LoadFile(slot);
+    }
+
+    private void SaveFile(int i)
+    {
+        var savedData = progress.Clone();
+        savedData.slot = i;
+        savedData.SaveToFile();
+
+        // update global state
+        GlobalState.Instance.saveds[i] = savedData;
+
+        // Update UI
+        var button = saveSlots[i];
+        // unsaved child, when the slot hasn't been used yet
+        var saved = button.transform.GetChild(0).gameObject;
+        saved.SetActive(false);
+
+        // if the slot has been used, display the saved stage and time
+        var unsaved = button.transform.GetChild(1).gameObject;
+        unsaved.SetActive(true);
+        unsaved.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = $"Stage {savedData.currentStage}";
+        unsaved.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = savedData.savedTimeStr;
+
+    }
+    private void LoadFile(int i)
+    {
+        GlobalState.Instance.CurrentProgress = GlobalState.Instance.saveds[i];
+        SaveLoadSessionToShopSession();
     }
 
     public void StartGame()
@@ -123,12 +201,4 @@ public class ShopController : MonoBehaviour
     {
         SceneManager.LoadScene("StartScene");
     }
-
-    public void OpenSaveLoadSession(bool saving)
-    {
-        saveLoadSession.SetActive(true);
-        shopSession.SetActive(false);
-        saveLoadLabel.text = saving ? "Select a file you wish to save" : "Select a file to load your game";
-    }
-
 }

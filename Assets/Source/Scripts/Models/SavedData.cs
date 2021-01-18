@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.IO;
 
 [System.Serializable]
-public class SavedData
+public class SavedData : ISerializationCallbackReceiver
 {
     public int slot;
     public int currentStage;
@@ -13,6 +11,8 @@ public class SavedData
     public int attackLevel;
     public int healthLevel;
     public int reloadLevel;
+    public string savedTimeStr;
+    public System.DateTime savedTime;
 
     public static SavedData Default()
     {
@@ -24,13 +24,15 @@ public class SavedData
             money = 0,
             currentStage = 1,
             slot = 0,
-            modelIndex = -1
+            modelIndex = -1,
         };
     }
-    public bool Save()
+    public bool SaveToFile()
     {
         try
         {
+            // set the time this file is saved
+            savedTime = System.DateTime.Now;
             var path = Path.Combine(Application.dataPath, "saves", $"{slot}.json");
             var json = JsonUtility.ToJson(this);
             File.WriteAllText(path, json);
@@ -44,17 +46,47 @@ public class SavedData
             return false;
         }
     }
-    public static SavedData Load(string name)
+    public static SavedData LoadFromFile(string name)
     {
         try
         {
             var path = Path.Combine(Application.dataPath, "saves", name);
             var json = File.ReadAllText(path);
-            return JsonUtility.FromJson<SavedData>(json);
+            var savedData = JsonUtility.FromJson<SavedData>(json);
+            Debug.Log($"Load file {name} successfully");
+            return savedData;
         }
-        catch (System.Exception)
+        catch (System.Exception e)
         {
+            // Debug.LogError(e.Message);
             return null;
         }
+    }
+
+    public void OnBeforeSerialize()
+    {
+        savedTimeStr = System.DateTime.Now.ToString();
+    }
+
+    public void OnAfterDeserialize()
+    {
+        if (savedTimeStr is null)
+            savedTime = System.DateTime.Now;
+        else savedTime = System.DateTime.Parse(savedTimeStr);
+    }
+    public SavedData Clone()
+    {
+        return new SavedData()
+        {
+            attackLevel = this.attackLevel,
+            healthLevel = this.healthLevel,
+            reloadLevel = this.reloadLevel,
+            money = this.money,
+            currentStage = this.currentStage,
+            slot = this.slot,
+            modelIndex = this.modelIndex,
+            savedTime = this.savedTime,
+            savedTimeStr = this.savedTimeStr
+        };
     }
 }
