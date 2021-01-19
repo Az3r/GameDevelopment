@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameObject[] hazards;
-    public Vector3 spawnValues;
+    public Vector3 hazardSpawnLocation;
+    public Vector3 playerSpawnLocation;
 
     public int hazardCount; //Number of hazard
     public float spawnWait; //time between 2 hazard spawn
@@ -15,6 +16,7 @@ public class GameController : MonoBehaviour
     private Coroutine coroutine;
     private void Start()
     {
+        Instantiate(GlobalState.Instance.SelectedSpaceCraft, playerSpawnLocation, Quaternion.Euler(-90f, 0f, 0f));
         coroutine = StartCoroutine(SpawnWaves());
     }
 
@@ -26,7 +28,7 @@ public class GameController : MonoBehaviour
             for (int i = 0; i < hazardCount; i++)
             {
                 GameObject hazard = hazards[Random.Range(0, hazards.Length)];
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+                Vector3 spawnPosition = new Vector3(Random.Range(-hazardSpawnLocation.x, hazardSpawnLocation.x), hazardSpawnLocation.y, hazardSpawnLocation.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate(hazard, spawnPosition, spawnRotation);
                 yield return new WaitForSeconds(spawnWait);
