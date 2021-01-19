@@ -19,6 +19,10 @@ public class EnermyController : MonoBehaviour
     private float targetManeuver;
 
     private Coroutine coroutine;
+
+    //Explosion
+    public GameObject explosion;
+    public GameObject playerExplosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,23 +50,48 @@ public class EnermyController : MonoBehaviour
     void FixedUpdate()
     {
         float newManeuver = Mathf.MoveTowards(body.velocity.x, targetManeuver, Time.deltaTime * smoothing);
-        body.velocity = new Vector3(newManeuver, 0.0f, currentSpeed);
+        body.velocity = new Vector3(newManeuver, currentSpeed, 0.0f);
 
         body.position = new Vector3(
             Mathf.Clamp(body.position.x, boundary.xMin, boundary.xMax),
-            0.0f,
-            Mathf.Clamp(body.position.z, boundary.yMin, boundary.yMax)
-        );
-
-        body.rotation = Quaternion.Euler(
-            0.0f,
-
-            body.velocity.x * -tilt,
+            Mathf.Clamp(body.position.y, boundary.yMin, boundary.yMax),
             0.0f
         );
+
+        //body.rotation = Quaternion.Euler(0.0f, body.velocity.x * -tilt, 0.0f);
     }
     private void OnDestroy()
     {
-        StopCoroutine(coroutine);
+        //StopCoroutine(coroutine);
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Instantiate(explosion, transform.position, transform.rotation);
+        if (other.tag == "Player")
+        {
+            SpaceshipController spaceship = other.GetComponent<SpaceshipController>();
+            if (spaceship != null)
+            {
+                spaceship.ChangeHealth(-1);
+            }
+            Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+        }
+        else
+        {
+            Destroy(other.gameObject);
+        }
+
+        Destroy(gameObject);
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }
