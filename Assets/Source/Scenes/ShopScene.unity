@@ -1196,16 +1196,6 @@ MonoBehaviour:
   selectableModelIndex: 0
   inSaveSession: 0
   current: {fileID: 0}
-  progress:
-    slot: 0
-    currentStage: 0
-    modelIndex: 0
-    money: 0
-    attackLevel: 0
-    healthLevel: 0
-    reloadLevel: 0
-    savedTimeStr: 1/18/2021 5:27:33 PM
-  data: {fileID: 0}
 --- !u!4 &235161366
 Transform:
   m_ObjectHideFlags: 0
@@ -8775,45 +8765,5 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 235161365}
-    - target: {fileID: 8342382426696213794, guid: a61c84151be80844d9329fb89e79d273,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnSlotSelected
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342382426696213794, guid: a61c84151be80844d9329fb89e79d273,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342382426696213794, guid: a61c84151be80844d9329fb89e79d273,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342382426696213794, guid: a61c84151be80844d9329fb89e79d273,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342382426950458150, guid: a61c84151be80844d9329fb89e79d273,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342382428218537380, guid: a61c84151be80844d9329fb89e79d273,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342382428218537380, guid: a61c84151be80844d9329fb89e79d273,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 8342382428478388896, guid: a61c84151be80844d9329fb89e79d273,
-        type: 3}
-      propertyPath: m_text
-      value: Slot X is empty
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a61c84151be80844d9329fb89e79d273, type: 3}
