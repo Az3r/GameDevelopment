@@ -46,5 +46,17 @@ MonoBehaviour:
   gameData: {fileID: 11400000, guid: 9c902120fcbedcb4bbfaf559c282cfd5, type: 2}
   spacecrafts:
   - {fileID: 5553181063343594540, guid: 5c03dee41e16bde4abdcc1907d0369ca, type: 3}
+  - {fileID: 5553181063343594540, guid: 92f27f7b36652b94c81c59ef57f682bd, type: 3}
+  - {fileID: 5553181063343594540, guid: 6871690af1e980145a78ee0e6e12598d, type: 3}
+  - {fileID: 5553181063343594540, guid: dda41cfc74ca36545bf58e4508d9c81a, type: 3}
+  - {fileID: 5553181063343594540, guid: 47d4b72026c6cdf498def6516d685e88, type: 3}
+  - {fileID: 5553181063343594540, guid: a83dc7066f3835749bd4a88eadc37a09, type: 3}
+  - {fileID: 5553181063343594540, guid: 5904eddecc33fc24a888d15d1e42df4f, type: 3}
+  - {fileID: 5553181063343594540, guid: 00bef5451e9eeb346b4b1474edb1d475, type: 3}
+  - {fileID: 5553181063343594540, guid: 68a43ba221a412b4b98c1dfe291b1f4b, type: 3}
+  - {fileID: 5553181063343594540, guid: 2680f7652424af449a3eb719e4f1412b, type: 3}
+  - {fileID: 5553181063343594540, guid: df6b4e56b15d7ef44ba840cc62c4bedd, type: 3}
+  - {fileID: 5553181063343594540, guid: a5f9b162072539843a1d6a04c7206afc, type: 3}
+  - {fileID: 5553181063343594540, guid: 69968a435cfd9644386244e14bcfb160, type: 3}
   selectedModelIndex: 0
   saveds: []

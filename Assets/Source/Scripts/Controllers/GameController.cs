@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject pauseGUI;
+
     public GameObject[] hazards;
     public Vector3 hazardSpawnLocation;
     public Vector3 playerSpawnLocation;
@@ -14,9 +18,20 @@ public class GameController : MonoBehaviour
     public float waveWait; //time between 2 wave
 
     private Coroutine coroutine;
+
+    [Header("Observed Fields")]
+    [SerializeField]
+    private SpaceshipController player;
+    private PlayerInput inputs;
+    private void Awake()
+    {
+        Application.targetFrameRate = 240;
+    }
     private void Start()
     {
-        Instantiate(GlobalState.Instance.SelectedSpaceCraft, playerSpawnLocation, Quaternion.Euler(-90f, 0f, 0f));
+        var playerGameObject = Instantiate(GlobalState.Instance.SelectedSpaceCraft, playerSpawnLocation, Quaternion.Euler(-90f, 0f, 0f));
+        player = playerGameObject.GetComponent<SpaceshipController>();
+        inputs = GetComponent<PlayerInput>();
         coroutine = StartCoroutine(SpawnWaves());
     }
 
@@ -40,5 +55,39 @@ public class GameController : MonoBehaviour
     private void OnDestroy()
     {
         StopCoroutine(coroutine);
+    }
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        player.OnShoot(context);
+    }
+    public void OnMoveHorizontal(InputAction.CallbackContext context)
+    {
+        player.MoveHorizontal(context);
+    }
+    public void OnMoveVertical(InputAction.CallbackContext context)
+    {
+        player.MoveVertical(context);
+    }
+    public void Pause(InputAction.CallbackContext context)
+    {
+        Time.timeScale = 0f;
+        pauseGUI.SetActive(true);
+        inputs.SwitchCurrentActionMap("Menu");
+
+    }
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        pauseGUI.SetActive(false);
+        inputs.SwitchCurrentActionMap("Player");
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene("MainScene");
+        Resume();
+    }
+    public void QuitToShopScene()
+    {
+        SceneManager.LoadScene("ShopScene");
     }
 }

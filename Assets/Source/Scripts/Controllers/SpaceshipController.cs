@@ -67,10 +67,6 @@ public class SpaceshipController : MonoBehaviour
         }
     }
 
-    public void Pause(InputAction.CallbackContext context)
-    {
-        Debug.Log("Game Paused");
-    }
 
     public void MoveHorizontal(InputAction.CallbackContext context)
     {
@@ -93,17 +89,6 @@ public class SpaceshipController : MonoBehaviour
         if (rigidbody.velocity.y < 0 && rigidbody.position.y < boundary.yMin || rigidbody.velocity.y > 0 && rigidbody.position.y > boundary.yMax)
             rigidbody.velocity = new Vector3(rigidbody.velocity.x, 0f);
     }
-
-    public void SetShape(Mesh mesh)
-    {
-        this.shape.mesh = mesh;
-        this.collider.sharedMesh = mesh;
-    }
-    public void SetColor(Material color)
-    {
-        this.color.material = color;
-    }
-
     public void ChangeHealth(int amount)
     {
         if (amount < 0)

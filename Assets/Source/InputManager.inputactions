@@ -59,7 +59,7 @@
                     "id": "6ff2a1f9-842d-42bd-9464-a905936c6bca",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "Press"
                 },
                 {
                     "name": "MoveVertical",
@@ -249,8 +249,29 @@
         {
             "name": "Menu",
             "id": "cfeb48bd-ad29-45db-a565-1bcc11031a55",
-            "actions": [],
-            "bindings": []
+            "actions": [
+                {
+                    "name": "Unpause",
+                    "type": "Button",
+                    "id": "ddbff91f-979c-4cb3-9511-95617f43e3a6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fe10ff6e-5a51-4366-8300-434d541caf10",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Unpause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
