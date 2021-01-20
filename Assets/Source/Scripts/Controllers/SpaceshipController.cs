@@ -104,6 +104,7 @@ public class SpaceshipController : MonoBehaviour
             }
         }
         _currentHealth = Mathf.Clamp(_currentHealth + amount, 0, _maxHealth);
+        GameController.Instance.UpdateHealthUI(_currentHealth);
         Debug.Log(_currentHealth + "/" + _maxHealth);
     }
 

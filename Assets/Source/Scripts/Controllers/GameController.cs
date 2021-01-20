@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance;
     public GameObject pauseGUI;
+    public List<GameObject> healthIcons;
+    public List<GameObject> ultimateIcons;
 
     public GameObject[] hazards;
     public Vector3 hazardSpawnLocation;
@@ -37,6 +39,17 @@ public class GameController : MonoBehaviour
         inputs = GetComponent<PlayerInput>();
         increaseScore = GetComponent<IncreaseScore>();
         coroutine = StartCoroutine(SpawnWaves());
+
+        SetupGUI();
+    }
+    private void SetupGUI()
+    {
+        int maxHealth = player.meta.health;
+        for (int i = 0; i < healthIcons.Count; i++)
+        {
+            healthIcons[i].SetActive(i < maxHealth);
+        }
+
     }
 
     IEnumerator<WaitForSeconds> SpawnWaves()
@@ -97,5 +110,12 @@ public class GameController : MonoBehaviour
     public void AddScore(int value)
     {
         increaseScore.SetScore(increaseScore.maxScore + value);
+    }
+    public void UpdateHealthUI(int currentHealth)
+    {
+        for (int i = 0; i < healthIcons.Count; i++)
+        {
+            healthIcons[i].SetActive(i < currentHealth);
+        }
     }
 }
