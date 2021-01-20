@@ -34,6 +34,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 248110736232469110}
+  - {fileID: 2111798653488451037}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -139,6 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a50708d25970b484caa857115d109dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floatingText: {fileID: 2808226315300389760, guid: 3a49b28128745e9449a9b52bd63d0b33,
+    type: 3}
+  scoreValue: 1000
+  scorePosition: {fileID: 2111798653488451037}
   explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 3}
   speed: 6
@@ -187,3 +192,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 5, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3795249462837217170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2111798653488451037}
+  m_Layer: 11
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2111798653488451037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3795249462837217170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 247146152316708150}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

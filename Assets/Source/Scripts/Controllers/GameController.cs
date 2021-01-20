@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
+    public static GameController Instance;
     public GameObject pauseGUI;
 
     public GameObject[] hazards;
@@ -23,15 +24,18 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private SpaceshipController player;
     private PlayerInput inputs;
+    private IncreaseScore increaseScore;
     private void Awake()
     {
         Application.targetFrameRate = 240;
+        Instance = this;
     }
     private void Start()
     {
         var playerGameObject = Instantiate(GlobalState.Instance.SelectedSpaceCraft, playerSpawnLocation, Quaternion.Euler(-90f, 0f, 0f));
         player = playerGameObject.GetComponent<SpaceshipController>();
         inputs = GetComponent<PlayerInput>();
+        increaseScore = GetComponent<IncreaseScore>();
         coroutine = StartCoroutine(SpawnWaves());
     }
 
@@ -89,5 +93,9 @@ public class GameController : MonoBehaviour
     public void QuitToShopScene()
     {
         SceneManager.LoadScene("ShopScene");
+    }
+    public void AddScore(int value)
+    {
+        increaseScore.SetScore(increaseScore.maxScore + value);
     }
 }

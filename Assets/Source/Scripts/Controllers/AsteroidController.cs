@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AsteroidController : MonoBehaviour
 {
+    public GameObject floatingText;
+    public int scoreValue;
+    public Transform scorePosition;
     public GameObject explosion;
     public GameObject playerExplosion;
 
@@ -34,7 +37,7 @@ public class AsteroidController : MonoBehaviour
         if (other.tag == "Player")
         {
             SpaceshipController spaceship = other.GetComponent<SpaceshipController>();
-            if(spaceship != null)
+            if (spaceship != null)
             {
                 spaceship.ChangeHealth(-1);
             }
@@ -44,7 +47,10 @@ public class AsteroidController : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
-        
+
+        var obj = Instantiate(floatingText, scorePosition.position, Quaternion.identity);
+        GameController.Instance.AddScore(scoreValue);
+        obj.GetComponent<FloatingText>().value = scoreValue;
         Destroy(gameObject);
     }
 }

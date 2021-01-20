@@ -22,7 +22,11 @@ public class GlobalState : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        DontDestroyOnLoad(this);
+        // use SingleTon so this object can be safely destroy
+        Destroy(this);
+    }
+    private void Start()
+    {
         LoadSaveFiles();
     }
     private void LoadSaveFiles()

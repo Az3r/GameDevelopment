@@ -56,7 +56,7 @@ public class SavedData : ISerializationCallbackReceiver
             Debug.Log($"Load file {name} successfully");
             return savedData;
         }
-        catch (System.Exception e)
+        catch (System.Exception)
         {
             // Debug.LogError(e.Message);
             return null;
