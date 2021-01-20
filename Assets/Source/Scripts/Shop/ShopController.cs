@@ -1,10 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.Threading.Tasks;
-using System.IO;
 using TMPro;
 
 public class ShopController : MonoBehaviour
@@ -70,17 +67,10 @@ public class ShopController : MonoBehaviour
         shopSession.SetActive(!isNewGame);
         saveLoadSession.SetActive(false);
 
-        reloadButton.interactable = progress.reloadLevel < data.reloadCost.Count;
-        attackButton.interactable = progress.attackLevel < data.attackCost.Count;
-        healthButton.interactable = progress.healthLevel < data.healthCost.Count;
-
-        reloadLevel.text = progress.reloadLevel >= data.reloadCost.Count ? "Max Level" : $"Level {progress.reloadLevel + 1}";
-        attackLevel.text = progress.attackLevel >= data.attackCost.Count ? "Max Level" : $"Level {progress.attackLevel + 1}";
-        healthLevel.text = progress.healthLevel >= data.healthCost.Count ? "Max Level" : $"Level {progress.healthLevel + 1}";
-
-        reloadCost.text = data.reloadCost[Mathf.Min(progress.reloadLevel, data.reloadCost.Count - 1)].ToString();
-        attackCost.text = data.attackCost[Mathf.Min(progress.attackLevel, data.attackCost.Count - 1)].ToString();
-        healthCost.text = data.healthCost[Mathf.Min(progress.healthLevel, data.healthCost.Count - 1)].ToString();
+        money.text = progress.money.ToString();
+        UpdateAttackUI();
+        UpdateReloadUI();
+        UpdateHealthUI();
 
         money.text = progress.money.ToString();
         currentStage.sprite = stageImages[progress.currentStage - 1];
@@ -200,5 +190,62 @@ public class ShopController : MonoBehaviour
     public void QuitToStartMenu()
     {
         SceneManager.LoadScene("StartScene");
+    }
+
+    public void UpgradeAttack()
+    {
+        progress.money -= data.attackCost[progress.attackLevel];
+        progress.attackLevel++;
+        progress.SaveToFile();
+
+        // update ui
+        money.text = progress.money.ToString();
+        UpdateAttackUI();
+        UpdateReloadUI();
+        UpdateHealthUI();
+
+        // Play sound
+    }
+    public void UpgradeReload()
+    {
+        progress.money -= data.reloadCost[progress.reloadLevel];
+        progress.reloadLevel++;
+        progress.SaveToFile();
+
+        // update ui
+        money.text = progress.money.ToString();
+        UpdateAttackUI();
+        UpdateReloadUI();
+        UpdateHealthUI();
+    }
+    public void UpgradeHealth()
+    {
+        progress.money -= data.healthCost[progress.healthLevel];
+        progress.healthLevel++;
+        progress.SaveToFile();
+
+        // update ui
+        money.text = progress.money.ToString();
+        UpdateAttackUI();
+        UpdateReloadUI();
+        UpdateHealthUI();
+    }
+    private void UpdateReloadUI()
+    {
+        reloadLevel.text = progress.reloadLevel >= data.reloadCost.Count ? "Max Level" : $"Level {progress.reloadLevel + 1}";
+        reloadCost.text = data.reloadCost[Mathf.Min(progress.reloadLevel, data.reloadCost.Count - 1)].ToString();
+        reloadButton.interactable = progress.reloadLevel < data.reloadCost.Count && progress.money >= data.reloadCost[progress.reloadLevel];
+    }
+    private void UpdateHealthUI()
+    {
+        healthLevel.text = progress.healthLevel >= data.healthCost.Count ? "Max Level" : $"Level {progress.healthLevel + 1}";
+        healthCost.text = data.healthCost[Mathf.Min(progress.healthLevel, data.healthCost.Count - 1)].ToString();
+        healthButton.interactable = progress.healthLevel < data.healthCost.Count && progress.money >= data.healthCost[progress.healthLevel];
+    }
+    private void UpdateAttackUI()
+    {
+        attackLevel.text = progress.attackLevel >= data.attackCost.Count ? "Max Level" : $"Level {progress.attackLevel + 1}";
+        attackCost.text = data.attackCost[Mathf.Min(progress.attackLevel, data.attackCost.Count - 1)].ToString();
+        attackButton.interactable = progress.attackLevel < data.attackCost.Count && progress.money >= data.attackCost[progress.attackLevel];
     }
 }
