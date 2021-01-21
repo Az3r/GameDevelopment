@@ -2310,7 +2310,18 @@ MonoBehaviour:
     m_ActionId: 7b51431c-d1c1-43d9-96ac-ee726ebc55d8
     m_ActionName: Player/Focus[/Keyboard/x]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1398482770}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 5f273557-b402-4b8a-91a5-f62d7d80051a
     m_ActionName: Player/Ultimate[/Keyboard/c,/Mouse/rightButton]
   - m_PersistentCalls:
@@ -2738,7 +2749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1499715609
 RectTransform:
   m_ObjectHideFlags: 0
