@@ -63,7 +63,7 @@ public class SpaceshipController : MonoBehaviour
         // shoot!
         if (_shooting && _shootCooldown <= 0)
         {
-            var bullet = bullets[Mathf.Min(powerLevel, bullets.Count)];
+            var bullet = bullets[Mathf.Min(powerLevel, bullets.Count - 1)];
             switch (powerLevel)
             {
                 case 0:
@@ -85,7 +85,7 @@ public class SpaceshipController : MonoBehaviour
                     Instantiate(bullet, guns[4].position, guns[4].rotation);
                     break;
                 default:
-                    for (int i = 1; i < powerLevel; i++)
+                    for (int i = 0; i < powerLevel; i++)
                     {
                         Instantiate(bullet, guns[i].position, guns[i].rotation);
                     }

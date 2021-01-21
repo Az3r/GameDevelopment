@@ -16,7 +16,7 @@ public class PowerUpController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter(Collider collider)
@@ -27,7 +27,7 @@ public class PowerUpController : MonoBehaviour
             if (spaceship != null)
             {
                 //Power up 
-                Debug.Log("Power up");
+                spaceship.powerLevel++;
                 Destroy(gameObject);
             }
         }

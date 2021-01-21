@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   speed: 10
-  reload: 0.1
+  reload: 0.05
   attack: 1
-  defense: 0
   health: 3
-  skin: {fileID: 2100000, guid: f221e96cfbb5d6040b82a97d3d5ff1d0, type: 2}
-  shape: {fileID: 4300000, guid: 21c6d0bb8170cae4f9d49bb728b3f524, type: 3}

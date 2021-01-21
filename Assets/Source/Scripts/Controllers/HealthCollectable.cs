@@ -16,7 +16,7 @@ public class HealthCollectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter(Collider collider)
@@ -26,8 +26,6 @@ public class HealthCollectable : MonoBehaviour
             SpaceshipController spaceship = collider.GetComponent<SpaceshipController>();
             if (spaceship != null)
             {
-                //Health +1
-                Debug.Log("Health +1");
                 spaceship.ChangeHealth(1);
                 Destroy(gameObject);
             }

@@ -37,8 +37,11 @@ public class GameController : MonoBehaviour
     }
     private void Start()
     {
-        var playerGameObject = Instantiate(GlobalState.Instance.SelectedSpaceCraft, playerSpawnLocation, Quaternion.Euler(-90f, 0f, 0f));
-        player = playerGameObject.GetComponent<SpaceshipController>();
+        if (player is null)
+        {
+            var playerGameObject = Instantiate(GlobalState.Instance.SelectedSpaceCraft, playerSpawnLocation, Quaternion.Euler(-90f, 0f, 0f));
+            player = playerGameObject.GetComponent<SpaceshipController>();
+        }
         inputs = GetComponent<PlayerInput>();
         increaseScore = GetComponent<IncreaseScore>();
         coroutine = StartCoroutine(SpawnWaves());
