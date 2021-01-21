@@ -12,16 +12,11 @@ public class GameController : MonoBehaviour
     public List<GameObject> healthIcons;
     public List<GameObject> ultimateIcons;
 
-    public GameObject[] hazards;
-    public Vector3 hazardSpawnLocation;
+
     public Vector3 playerSpawnLocation;
 
-    public int hazardCount; //Number of hazard
-    public float spawnWait; //time between 2 hazard spawn
-    public float startWait;
-    public float waveWait; //time between 2 wave
 
-    private Coroutine coroutine;
+    
     private PlayerInput inputs;
     private IncreaseScore increaseScore;
     private SavedData progress => GlobalState.Instance.CurrentProgress;
@@ -50,8 +45,6 @@ public class GameController : MonoBehaviour
 
         inputs = GetComponent<PlayerInput>();
         increaseScore = GetComponent<IncreaseScore>();
-        coroutine = StartCoroutine(SpawnWaves());
-
         SetupGUI();
     }
     private void SetupGUI()
@@ -64,27 +57,9 @@ public class GameController : MonoBehaviour
 
     }
 
-    IEnumerator<WaitForSeconds> SpawnWaves()
-    {
-        yield return new WaitForSeconds(startWait);
-        while (true)
-        {
-            for (int i = 0; i < hazardCount; i++)
-            {
-                GameObject hazard = hazards[Random.Range(0, hazards.Length)];
-                Vector3 spawnPosition = new Vector3(Random.Range(-hazardSpawnLocation.x, hazardSpawnLocation.x), hazardSpawnLocation.y, hazardSpawnLocation.z);
-                Quaternion spawnRotation = Quaternion.identity;
-                Instantiate(hazard, spawnPosition, spawnRotation);
-                yield return new WaitForSeconds(spawnWait);
-            }
-            yield return new WaitForSeconds(waveWait);
-        }
-    }
+    
 
-    private void OnDestroy()
-    {
-        StopCoroutine(coroutine);
-    }
+    
     public void OnShoot(InputAction.CallbackContext context)
     {
         player.OnShoot(context);
@@ -134,5 +109,12 @@ public class GameController : MonoBehaviour
     {
         failGUI.SetActive(true);
         inputs.SwitchCurrentActionMap("None");
+    }
+
+    public void LoadLevel(string name)
+    {
+        progress.SaveToFile();
+        GlobalState.Instance.CurrentProgress = progress;
+        SceneManager.LoadScene(name);
     }
 }

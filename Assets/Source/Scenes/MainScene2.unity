@@ -832,7 +832,7 @@ GameObject:
   - component: {fileID: 592211264}
   - component: {fileID: 592211263}
   m_Layer: 0
-  m_Name: Level1
+  m_Name: Level2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -847,20 +847,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 592211262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9e9665f5b07664e8e9ef1dd5d28106, type: 3}
+  m_Script: {fileID: 11500000, guid: 2373a8766d9dea24f894a0bdafb29c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hazards:
-  - {fileID: 4792213116096858467, guid: 0f945a6737e24c641a4d64fbe7834d6e, type: 3}
   - {fileID: 2192368541501506994, guid: 0491830ede0548143b81b63b972a25ce, type: 3}
-  - {fileID: 427209015596354069, guid: 5593f5444bd07e14980c8aceeac203c0, type: 3}
-  - {fileID: 2670935118527766842, guid: ada0071ba921c994a978414d5a2c2065, type: 3}
+  - {fileID: 3847054440987471811, guid: 67a6952094f38b149a29e3a5c4f80720, type: 3}
+  - {fileID: 3847054440987471811, guid: 67a6952094f38b149a29e3a5c4f80720, type: 3}
+  - {fileID: 3847054440987471811, guid: 67a6952094f38b149a29e3a5c4f80720, type: 3}
   hazardSpawnLocation: {x: 29, y: 15, z: 0}
-  waves: 1
-  hazardCount: 12
-  spawnWait: 1
-  startWait: 0.5
-  waveWait: 4
+  waves: 4
+  hazardCount: 0
+  spawnWait: 0
+  startWait: 0
+  waveWait: 0
 --- !u!4 &592211264
 Transform:
   m_ObjectHideFlags: 0
