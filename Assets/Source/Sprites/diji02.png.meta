@@ -604,9 +604,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 615
-        y: 85.666664
-        width: 123.07692
-        height: 85.333336
+        y: 70
+        width: 64
+        height: 58
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -624,10 +624,10 @@ TextureImporter:
       name: diji02_19
       rect:
         serializedVersion: 2
-        x: 738
-        y: 85.666664
-        width: 123.07692
-        height: 85.333336
+        x: 748
+        y: 69
+        width: 21
+        height: 54
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -20,9 +20,17 @@ public class EnermyController : MonoBehaviour
 
     private Coroutine coroutine;
 
+    public bool isManeuver = true;
+
     //Explosion
     public GameObject explosion;
     public GameObject playerExplosion;
+
+    //Score
+    public GameObject floatingText;
+    public int scoreValue;
+    public Transform scorePosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,15 +57,17 @@ public class EnermyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float newManeuver = Mathf.MoveTowards(body.velocity.x, targetManeuver, Time.deltaTime * smoothing);
-        body.velocity = new Vector3(newManeuver, currentSpeed, 0.0f);
+        if (isManeuver)
+        {
+            float newManeuver = Mathf.MoveTowards(body.velocity.x, targetManeuver, Time.deltaTime * smoothing);
+            body.velocity = new Vector3(newManeuver, currentSpeed, 0.0f);
 
-        body.position = new Vector3(
-            Mathf.Clamp(body.position.x, boundary.xMin, boundary.xMax),
-            Mathf.Clamp(body.position.y, boundary.yMin, boundary.yMax),
-            0.0f
-        );
-
+            body.position = new Vector3(
+                Mathf.Clamp(body.position.x, boundary.xMin, boundary.xMax),
+                Mathf.Clamp(body.position.y, boundary.yMin, boundary.yMax),
+                0.0f
+            );
+        }
         //body.rotation = Quaternion.Euler(0.0f, body.velocity.x * -tilt, 0.0f);
     }
     private void OnDestroy()
@@ -86,7 +96,9 @@ public class EnermyController : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
-
+        var obj = Instantiate(floatingText, scorePosition.position, Quaternion.identity);
+        GameController.Instance.AddScore(scoreValue);
+        obj.GetComponent<FloatingText>().value = scoreValue;
         Destroy(gameObject);
     }
 
