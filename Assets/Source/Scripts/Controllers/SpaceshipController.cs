@@ -99,8 +99,8 @@ public class SpaceshipController : MonoBehaviour
             }
             else
             {
-                //gameover
-                Debug.Log("Game Over");
+                Destroy(this.gameObject);
+                GameController.Instance.DisplayFailScreen();
             }
         }
         _currentHealth = Mathf.Clamp(_currentHealth + amount, 0, _maxHealth);

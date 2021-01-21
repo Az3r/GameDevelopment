@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 {
     public static GameController Instance;
     public GameObject pauseGUI;
+    public GameObject failGUI;
     public List<GameObject> healthIcons;
     public List<GameObject> ultimateIcons;
 
@@ -119,5 +120,10 @@ public class GameController : MonoBehaviour
         {
             healthIcons[i].SetActive(i < currentHealth);
         }
+    }
+    public void DisplayFailScreen()
+    {
+        failGUI.SetActive(true);
+        inputs.SwitchCurrentActionMap("None");
     }
 }

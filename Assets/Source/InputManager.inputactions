@@ -272,6 +272,12 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "None",
+            "id": "21dfe5fd-cb46-4bbb-8cf8-f968a0b87206",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [
