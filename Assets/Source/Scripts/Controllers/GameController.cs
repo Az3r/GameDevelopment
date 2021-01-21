@@ -21,12 +21,14 @@ public class GameController : MonoBehaviour
     public float waveWait; //time between 2 wave
 
     private Coroutine coroutine;
+    private PlayerInput inputs;
+    private IncreaseScore increaseScore;
+    private SavedData progress => GlobalState.Instance.CurrentProgress;
+    private GameData data => GlobalState.Instance.gameData;
 
     [Header("Observed Fields")]
     [SerializeField]
     private SpaceshipController player;
-    private PlayerInput inputs;
-    private IncreaseScore increaseScore;
     private void Awake()
     {
         Application.targetFrameRate = 240;
