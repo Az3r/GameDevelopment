@@ -111,8 +111,7 @@ public class ShopController : MonoBehaviour
     private void GetModel(int i)
     {
         // No more out of range exception
-        Mathf.Clamp(0, i, models.Count);
-        selectableModelIndex = i % models.Count;
+        selectableModelIndex = Mathf.Clamp(0, i, models.Count);
 
         // display new model and continue to rotate with an angle from old model
         var rotation = current.transform.rotation;

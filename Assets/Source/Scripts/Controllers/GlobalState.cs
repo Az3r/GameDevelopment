@@ -9,8 +9,7 @@ public class GlobalState : MonoBehaviour
     public static GlobalState Instance;
     public GameData gameData;
     public GameObject[] spacecrafts;
-    public GameObject SelectedSpaceCraft => spacecrafts[selectedModelIndex];
-    public int selectedModelIndex = 0;
+    public GameObject SelectedSpaceCraft => spacecrafts[CurrentProgress.modelIndex];
     public SavedData CurrentProgress
     {
         get => saveds[0];
@@ -22,12 +21,9 @@ public class GlobalState : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        LoadSaveFiles();
         // use SingleTon so this object can be safely destroy
         Destroy(this);
-    }
-    private void Start()
-    {
-        LoadSaveFiles();
     }
     private void LoadSaveFiles()
     {
