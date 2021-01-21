@@ -11,8 +11,9 @@ public class SpaceshipController : MonoBehaviour
 
     public MovableArea boundary;
 
-    public GameObject bullet;
-    public Transform gun;
+    public int powerLevel;
+    public List<Transform> guns;
+    public List<GameObject> bullets;
 
     private new Rigidbody rigidbody;
     private MeshFilter shape;
@@ -62,7 +63,34 @@ public class SpaceshipController : MonoBehaviour
         // shoot!
         if (_shooting && _shootCooldown <= 0)
         {
-            Instantiate(bullet, gun.position, gun.rotation);
+            var bullet = bullets[Mathf.Min(powerLevel, bullets.Count)];
+            switch (powerLevel)
+            {
+                case 0:
+                    Instantiate(bullet, guns[0].position, guns[0].rotation);
+                    break;
+                case 1:
+                    Instantiate(bullet, guns[1].position, guns[1].rotation);
+                    Instantiate(bullet, guns[2].position, guns[2].rotation);
+                    break;
+                case 2:
+                    Instantiate(bullet, guns[0].position, guns[0].rotation);
+                    Instantiate(bullet, guns[1].position, guns[1].rotation);
+                    Instantiate(bullet, guns[2].position, guns[2].rotation);
+                    break;
+                case 3:
+                    Instantiate(bullet, guns[1].position, guns[1].rotation);
+                    Instantiate(bullet, guns[2].position, guns[2].rotation);
+                    Instantiate(bullet, guns[3].position, guns[3].rotation);
+                    Instantiate(bullet, guns[4].position, guns[4].rotation);
+                    break;
+                default:
+                    for (int i = 1; i < powerLevel; i++)
+                    {
+                        Instantiate(bullet, guns[i].position, guns[i].rotation);
+                    }
+                    break;
+            }
             _shootCooldown = meta.reload;
         }
     }
