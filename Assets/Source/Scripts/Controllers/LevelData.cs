@@ -10,7 +10,7 @@ public class LevelData : ScriptableObject
     public GameObject[] enermies;
     public GameObject[] asteroids;
     public GameObject[] items;
-
+    public GameObject boss;
     public int waves = 4; //Number of wave
     public int hazardCount; //Number of hazard
     public float spawnWait; //time between 2 hazard spawn

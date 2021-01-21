@@ -2759,11 +2759,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1398482770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9e9665f5b07664e8e9ef1dd5d28106, type: 3}
+  m_Script: {fileID: 11500000, guid: 2373a8766d9dea24f894a0bdafb29c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hazardSpawnLocation: {x: 29, y: 15, z: 0}
-  level: {fileID: 11400000, guid: 628ae80b81012e943885a82f5c4889d5, type: 2}
+  level: {fileID: 11400000, guid: a1ae05635eab317428b4e1db21e613ea, type: 2}
 --- !u!1 &1411188752
 GameObject:
   m_ObjectHideFlags: 0

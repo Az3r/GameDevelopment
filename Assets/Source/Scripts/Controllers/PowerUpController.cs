@@ -32,4 +32,9 @@ public class PowerUpController : MonoBehaviour
             }
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

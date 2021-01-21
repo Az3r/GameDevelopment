@@ -10,23 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cdc08c57bb49494e9b3e0b5f2f327df, type: 3}
-  m_Name: LevelData
+  m_Name: LevelData 2
   m_EditorClassIdentifier: 
   enermies:
-  - {fileID: 4792213116096858467, guid: 0f945a6737e24c641a4d64fbe7834d6e, type: 3}
+  - {fileID: 2670935118527766842, guid: ada0071ba921c994a978414d5a2c2065, type: 3}
+  - {fileID: 7127518890528392879, guid: 87e2e31f54f57bf42aedb1ec3f4d7dc5, type: 3}
+  - {fileID: 9160882760153644228, guid: 7800059f407e60945aba24441bc77176, type: 3}
   - {fileID: 2192368541501506994, guid: 0491830ede0548143b81b63b972a25ce, type: 3}
   - {fileID: 427209015596354069, guid: 5593f5444bd07e14980c8aceeac203c0, type: 3}
-  - {fileID: 2670935118527766842, guid: ada0071ba921c994a978414d5a2c2065, type: 3}
+  - {fileID: 5393201891617284994, guid: 334d3ed48b001024d9afe6c6ab142205, type: 3}
   asteroids:
-  - {fileID: 946971706193808753, guid: e36b367f93dbdf04dbef08c2f841e8e3, type: 3}
-  - {fileID: 250459410337236658, guid: 96e5577e6378166428289dbcb31e0927, type: 3}
-  - {fileID: 3847054440987471811, guid: 67a6952094f38b149a29e3a5c4f80720, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   items:
-  - {fileID: 2751606345603825007, guid: b69676d2f55127748a15db8c018bb8dc, type: 3}
   - {fileID: 4885909733102836073, guid: 1f60613dc4e479d488288fa8a0950541, type: 3}
-  boss: {fileID: 851349319186824294, guid: d1e8efcbc8136e246915cf4b4c9a7960, type: 3}
-  waves: 3
-  hazardCount: 10
+  - {fileID: 1668528608598686123, guid: 739adde85d7705348934bedb98165b0c, type: 3}
+  - {fileID: 2751606345603825007, guid: b69676d2f55127748a15db8c018bb8dc, type: 3}
+  boss: {fileID: 1708171145700420755, guid: 74cfbf3cd0740a8489d5c6b09d980149, type: 3}
+  waves: 4
+  hazardCount: 12
   spawnWait: 2
   startWait: 0.5
   waveWait: 4

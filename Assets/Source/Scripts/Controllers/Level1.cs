@@ -26,27 +26,32 @@ public class Level1 : MonoBehaviour
     {
         yield return new WaitForSeconds(level.startWait);
         int current = 0;
-        level.waves = 10;
+        level.waves = 3;
         while (current< level.waves)
         {
+            Debug.Log(current);
             for (int i = 0; i < level.hazardCount; i++)
             {
 
                 GameObject obj = null;
-                if (current == 1) {
+                if (current == 0) {
                     obj = level.enermies[0];
                 }
-                if (current == 2)
+                if (current == 1)
                 {
                     obj = level.enermies[1];
                 }
-                if (current == 3)
+                if (current == 2)
                 {
                     obj = level.enermies[2];
                 }
-                if (current == 4)
+                if (current == 3)
                 {
                     obj = level.enermies[Random.Range(0, level.enermies.Length)];
+                }
+                if (current == 4)
+                {
+                    obj = level.asteroids[Random.Range(0, level.asteroids.Length)];
                 }
                 if (current == 5)
                 {
@@ -58,7 +63,7 @@ public class Level1 : MonoBehaviour
                 }
                 if (current == 7)
                 {
-                    obj = level.asteroids[Random.Range(0, level.asteroids.Length)];
+                    obj = level.enermies[Random.Range(0, level.enermies.Length)];
                 }
                 if (current == 8)
                 {
@@ -68,7 +73,7 @@ public class Level1 : MonoBehaviour
                 {
                     obj = level.enermies[Random.Range(0, level.enermies.Length)];
                 }
-                if (current == 9)
+                if (current == 10)
                 {
                     obj = level.enermies[Random.Range(0, level.enermies.Length)];
                 }
@@ -92,9 +97,12 @@ public class Level1 : MonoBehaviour
             yield return new WaitForSeconds(level.waveWait);
         }
 
-        
-        //End of level
 
+        //Boss
+        GameObject boss = level.boss;
+        Vector3 bossPosition = new Vector3(Random.Range(-hazardSpawnLocation.x, hazardSpawnLocation.x), hazardSpawnLocation.y, hazardSpawnLocation.z);
+        Quaternion bossRotation = Quaternion.identity;
+        Instantiate(boss, bossPosition, bossRotation);
     }
 
     private void OnDestroy()

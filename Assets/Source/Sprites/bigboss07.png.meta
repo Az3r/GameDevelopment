@@ -1,31 +1,28 @@
 fileFormatVersion: 2
-guid: d8ba31bf6a9b649489792af22752ecbd
+guid: 27008dfe04fe08943af310e97049452d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8326571308298298153
-    second: sucai_0
+      213: 4711533322449826827
+    second: bigboss07_0
   - first:
-      213: 7067479750076095914
-    second: sucai_1
+      213: 5841268537212743333
+    second: bigboss07_1
   - first:
-      213: 7792227935599587527
-    second: sucai_2
+      213: -6725863667574140979
+    second: bigboss07_2
   - first:
-      213: -3469294237413634066
-    second: sucai_3
+      213: -8249652914052991127
+    second: bigboss07_3
   - first:
-      213: 4432912751199710457
-    second: sucai_4
+      213: -4128930887405879813
+    second: bigboss07_4
   - first:
-      213: 6106923791821383856
-    second: sucai_5
+      213: 5433671717644291833
+    second: bigboss07_5
   - first:
-      213: 5801268785818633340
-    second: sucai_6
-  - first:
-      213: 505562513054778025
-    second: sucai_7
+      213: -1331777971361314892
+    second: bigboss07_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -111,13 +108,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sucai_0
+      name: bigboss07_0
       rect:
         serializedVersion: 2
-        x: 1056
-        y: 13
-        width: 74
-        height: 68
+        x: 0
+        y: 237
+        width: 164
+        height: 263
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +122,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92364142d7ced8370800000000000000
-      internalID: 8326571308298298153
+      spriteID: b04b900189ab26140800000000000000
+      internalID: 4711533322449826827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sucai_1
+      name: bigboss07_1
       rect:
         serializedVersion: 2
-        x: 1455
-        y: 5
-        width: 65
-        height: 67
+        x: 166
+        y: 318
+        width: 48
+        height: 88
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aad5d88336bb41260800000000000000
-      internalID: 7067479750076095914
+      spriteID: 5ae2b3649ca501150800000000000000
+      internalID: 5841268537212743333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sucai_2
+      name: bigboss07_2
       rect:
         serializedVersion: 2
-        x: 1287
-        y: 290
-        width: 33
-        height: 109
+        x: 164
+        y: 236
+        width: 50
+        height: 78
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c0f94eb50e832c60800000000000000
-      internalID: 7792227935599587527
+      spriteID: dcf898621aee8a2a0800000000000000
+      internalID: -6725863667574140979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sucai_3
+      name: bigboss07_3
       rect:
         serializedVersion: 2
-        x: 124
-        y: 904
-        width: 61
-        height: 109
+        x: 2
+        y: 61
+        width: 100
+        height: 177
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eef86ada5479adfc0800000000000000
-      internalID: -3469294237413634066
+      spriteID: 967fa991268538d80800000000000000
+      internalID: -8249652914052991127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sucai_4
+      name: bigboss07_4
       rect:
         serializedVersion: 2
-        x: 1379
-        y: 522
-        width: 37
-        height: 89
+        x: 0
+        y: 0
+        width: 91
+        height: 62
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fcee8f19aed48d30800000000000000
-      internalID: 4432912751199710457
+      spriteID: bfdb802eb3713b6c0800000000000000
+      internalID: -4128930887405879813
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sucai_5
+      name: bigboss07_5
       rect:
         serializedVersion: 2
-        x: 1554
-        y: 715
-        width: 26
-        height: 38
+        x: 103
+        y: 119
+        width: 90
+        height: 117
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,41 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b825e135d620c450800000000000000
-      internalID: 6106923791821383856
+      spriteID: 9fe464c63a7486b40800000000000000
+      internalID: 5433671717644291833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sucai_6
+      name: bigboss07_6
       rect:
         serializedVersion: 2
-        x: 518
-        y: 384
-        width: 96
-        height: 101
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c740849693f328050800000000000000
-      internalID: 5801268785818633340
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sucai_7
-      rect:
-        serializedVersion: 2
-        x: 623
-        y: 383
-        width: 96
-        height: 101
+        x: 103
+        y: 45
+        width: 85
+        height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,8 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a242625d6e140700800000000000000
-      internalID: 505562513054778025
+      spriteID: 4b78159bdf2948de0800000000000000
+      internalID: -1331777971361314892
       vertices: []
       indices: 
       edges: []

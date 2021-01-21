@@ -32,4 +32,9 @@ public class HealthCollectable : MonoBehaviour
 
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }
