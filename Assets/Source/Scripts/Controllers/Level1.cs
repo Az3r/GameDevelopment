@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Level1 : MonoBehaviour
 {
-    
     public Vector3 hazardSpawnLocation = new Vector3(29, 15, 0);
     public LevelData level;
     
@@ -27,19 +26,73 @@ public class Level1 : MonoBehaviour
     {
         yield return new WaitForSeconds(level.startWait);
         int current = 0;
+        level.waves = 10;
         while (current< level.waves)
         {
             for (int i = 0; i < level.hazardCount; i++)
             {
-                GameObject hazard = level.enermies[Random.Range(0, level.enermies.Length)];
+
+                GameObject obj = null;
+                if (current == 1) {
+                    obj = level.enermies[0];
+                }
+                if (current == 2)
+                {
+                    obj = level.enermies[1];
+                }
+                if (current == 3)
+                {
+                    obj = level.enermies[2];
+                }
+                if (current == 4)
+                {
+                    obj = level.enermies[Random.Range(0, level.enermies.Length)];
+                }
+                if (current == 5)
+                {
+                    obj = level.asteroids[Random.Range(0, level.asteroids.Length)];
+                }
+                if (current == 6)
+                {
+                    obj = level.asteroids[Random.Range(0, level.asteroids.Length)];
+                }
+                if (current == 7)
+                {
+                    obj = level.asteroids[Random.Range(0, level.asteroids.Length)];
+                }
+                if (current == 8)
+                {
+                    obj = level.enermies[Random.Range(0, level.enermies.Length)];
+                }
+                if (current == 9)
+                {
+                    obj = level.enermies[Random.Range(0, level.enermies.Length)];
+                }
+                if (current == 9)
+                {
+                    obj = level.enermies[Random.Range(0, level.enermies.Length)];
+                }
+
                 Vector3 spawnPosition = new Vector3(Random.Range(-hazardSpawnLocation.x, hazardSpawnLocation.x), hazardSpawnLocation.y, hazardSpawnLocation.z);
                 Quaternion spawnRotation = Quaternion.identity;
-                Instantiate(hazard, spawnPosition, spawnRotation);
+                if (obj != null)
+                {
+                    Instantiate(obj, spawnPosition, spawnRotation);
+                }
                 yield return new WaitForSeconds(level.spawnWait);
             }
             current++;
+            GameObject item = level.items[Random.Range(0, level.items.Length)];
+            Vector3 itemPosition = new Vector3(Random.Range(-hazardSpawnLocation.x, hazardSpawnLocation.x), hazardSpawnLocation.y, hazardSpawnLocation.z);
+            Quaternion itemRotation = Quaternion.identity;
+            if (item != null)
+            {
+                Instantiate(item, itemPosition, itemRotation);
+            }
             yield return new WaitForSeconds(level.waveWait);
         }
+
+        
         //End of level
 
     }
@@ -49,8 +102,4 @@ public class Level1 : MonoBehaviour
         StopCoroutine(coroutine);
     }
 
-    void InitObject(GameObject gameObject, Vector3 spawnPosition, Quaternion spawnRotation)
-    {
-        Instantiate(gameObject, spawnPosition, spawnRotation);
-    }
 }
