@@ -2640,6 +2640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseGUI: {fileID: 423843760}
   failGUI: {fileID: 1499715608}
+  winGUI: {fileID: 2145604517}
   healthIcons:
   - {fileID: 723495884}
   - {fileID: 512323745}

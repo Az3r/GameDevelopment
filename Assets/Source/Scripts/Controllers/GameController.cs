@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public static GameController Instance;
     public GameObject pauseGUI;
     public GameObject failGUI;
+    public GameObject winGUI;
     public List<GameObject> healthIcons;
     public List<GameObject> ultimateIcons;
 
@@ -16,7 +17,7 @@ public class GameController : MonoBehaviour
     public Vector3 playerSpawnLocation;
 
 
-    
+
     private PlayerInput inputs;
     private IncreaseScore increaseScore;
     private SavedData progress => GlobalState.Instance.CurrentProgress;
@@ -57,9 +58,9 @@ public class GameController : MonoBehaviour
 
     }
 
-    
 
-    
+
+
     public void OnShoot(InputAction.CallbackContext context)
     {
         player.OnShoot(context);
