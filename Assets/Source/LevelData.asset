@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdc08c57bb49494e9b3e0b5f2f327df, type: 3}
+  m_Name: LevelData
+  m_EditorClassIdentifier: 
+  enermies:
+  - {fileID: 4792213116096858467, guid: 0f945a6737e24c641a4d64fbe7834d6e, type: 3}
+  - {fileID: 2192368541501506994, guid: 0491830ede0548143b81b63b972a25ce, type: 3}
+  - {fileID: 427209015596354069, guid: 5593f5444bd07e14980c8aceeac203c0, type: 3}
+  - {fileID: 2670935118527766842, guid: ada0071ba921c994a978414d5a2c2065, type: 3}
+  asteroids:
+  - {fileID: 946971706193808753, guid: e36b367f93dbdf04dbef08c2f841e8e3, type: 3}
+  - {fileID: 250459410337236658, guid: 96e5577e6378166428289dbcb31e0927, type: 3}
+  - {fileID: 3847054440987471811, guid: 67a6952094f38b149a29e3a5c4f80720, type: 3}
+  items:
+  - {fileID: 2751606345603825007, guid: b69676d2f55127748a15db8c018bb8dc, type: 3}
+  - {fileID: 4885909733102836073, guid: 1f60613dc4e479d488288fa8a0950541, type: 3}
+  waves: 4
+  hazardCount: 10
+  spawnWait: 1
+  startWait: 1
+  waveWait: 3

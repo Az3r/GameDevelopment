@@ -821,60 +821,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540580138}
   m_CullTransparentMesh: 0
---- !u!1 &592211262
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 592211264}
-  - component: {fileID: 592211263}
-  m_Layer: 0
-  m_Name: Level1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &592211263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592211262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec9e9665f5b07664e8e9ef1dd5d28106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hazards:
-  - {fileID: 4792213116096858467, guid: 0f945a6737e24c641a4d64fbe7834d6e, type: 3}
-  - {fileID: 2192368541501506994, guid: 0491830ede0548143b81b63b972a25ce, type: 3}
-  - {fileID: 427209015596354069, guid: 5593f5444bd07e14980c8aceeac203c0, type: 3}
-  - {fileID: 2670935118527766842, guid: ada0071ba921c994a978414d5a2c2065, type: 3}
-  hazardSpawnLocation: {x: 29, y: 15, z: 0}
-  waves: 1
-  hazardCount: 12
-  spawnWait: 1
-  startWait: 0.5
-  waveWait: 4
---- !u!4 &592211264
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 592211262}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 332.22556, y: 78.45406, z: -171.15625}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &603096178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,6 +2116,7 @@ GameObject:
   - component: {fileID: 1398482774}
   - component: {fileID: 1398482773}
   - component: {fileID: 1398482772}
+  - component: {fileID: 1398482775}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -2377,6 +2324,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1398482775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398482770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9e9665f5b07664e8e9ef1dd5d28106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hazardSpawnLocation: {x: 29, y: 15, z: 0}
+  level: {fileID: 11400000, guid: 628ae80b81012e943885a82f5c4889d5, type: 2}
 --- !u!1 &1411188752
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,14 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Level1 : MonoBehaviour
 {
-    public GameObject[] hazards;
+    
     public Vector3 hazardSpawnLocation = new Vector3(29, 15, 0);
-
-    public int waves = 4; //Number of wave
-    public int hazardCount; //Number of hazard
-    public float spawnWait; //time between 2 hazard spawn
-    public float startWait;
-    public float waveWait; //time between 2 wave
+    public LevelData level;
+    
 
     private Coroutine coroutine;
     // Start is called before the first frame update
@@ -29,28 +25,32 @@ public class Level1 : MonoBehaviour
 
     IEnumerator<WaitForSeconds> SpawnWaves()
     {
-        yield return new WaitForSeconds(startWait);
+        yield return new WaitForSeconds(level.startWait);
         int current = 0;
-        while (current<waves)
+        while (current< level.waves)
         {
-            for (int i = 0; i < hazardCount; i++)
+            for (int i = 0; i < level.hazardCount; i++)
             {
-                GameObject hazard = hazards[Random.Range(0, hazards.Length)];
+                GameObject hazard = level.enermies[Random.Range(0, level.enermies.Length)];
                 Vector3 spawnPosition = new Vector3(Random.Range(-hazardSpawnLocation.x, hazardSpawnLocation.x), hazardSpawnLocation.y, hazardSpawnLocation.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate(hazard, spawnPosition, spawnRotation);
-                yield return new WaitForSeconds(spawnWait);
+                yield return new WaitForSeconds(level.spawnWait);
             }
             current++;
-            yield return new WaitForSeconds(waveWait);
+            yield return new WaitForSeconds(level.waveWait);
         }
         //End of level
 
-        GameController.Instance.LoadLevel("MainScene2");
     }
 
     private void OnDestroy()
     {
         StopCoroutine(coroutine);
+    }
+
+    void InitObject(GameObject gameObject, Vector3 spawnPosition, Quaternion spawnRotation)
+    {
+        Instantiate(gameObject, spawnPosition, spawnRotation);
     }
 }
