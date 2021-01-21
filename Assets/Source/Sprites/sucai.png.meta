@@ -8,6 +8,12 @@ TextureImporter:
   - first:
       213: 7067479750076095914
     second: sucai_1
+  - first:
+      213: 7792227935599587527
+    second: sucai_2
+  - first:
+      213: -3469294237413634066
+    second: sucai_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -122,7 +128,7 @@ TextureImporter:
         width: 65
         height: 67
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -130,6 +136,48 @@ TextureImporter:
       bones: []
       spriteID: aad5d88336bb41260800000000000000
       internalID: 7067479750076095914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sucai_2
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 290
+        width: 33
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c0f94eb50e832c60800000000000000
+      internalID: 7792227935599587527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sucai_3
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 904
+        width: 61
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef86ada5479adfc0800000000000000
+      internalID: -3469294237413634066
       vertices: []
       indices: 
       edges: []
