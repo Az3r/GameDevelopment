@@ -235,7 +235,7 @@ MonoBehaviour:
   maneuverWait: {x: 0, y: 0}
   boundary:
     horizontal: {x: -8, y: 8}
-    vertical: {x: -15, y: 15}
+    vertical: {x: -18, y: 18}
   isManeuver: 1
   explosion: {fileID: 100012, guid: 384371afbb4354cc9a3fc68eab303756, type: 3}
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 3}
