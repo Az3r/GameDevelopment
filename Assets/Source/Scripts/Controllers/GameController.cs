@@ -58,9 +58,6 @@ public class GameController : MonoBehaviour
 
     }
 
-
-
-
     public void OnShoot(InputAction.CallbackContext context)
     {
         player.OnShoot(context);
@@ -91,8 +88,10 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("MainScene");
         Resume();
     }
-    public void QuitToShopScene()
+    public void ToShopScene(int stageIncrease = 0)
     {
+        progress.currentStage += stageIncrease;
+        if (stageIncrease > 0) progress.SaveToFile();
         SceneManager.LoadScene("ShopScene");
     }
     public void AddScore(int value)
@@ -112,10 +111,11 @@ public class GameController : MonoBehaviour
         inputs.SwitchCurrentActionMap("None");
     }
 
-    public void LoadLevel(string name)
+    public void DiplayWinningScreen()
     {
-        progress.SaveToFile();
-        GlobalState.Instance.CurrentProgress = progress;
-        SceneManager.LoadScene(name);
+        winGUI.SetActive(true);
+        inputs.SwitchCurrentActionMap("None");
     }
+
+
 }
