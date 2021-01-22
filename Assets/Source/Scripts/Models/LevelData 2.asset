@@ -28,8 +28,8 @@ MonoBehaviour:
   - {fileID: 1668528608598686123, guid: 739adde85d7705348934bedb98165b0c, type: 3}
   - {fileID: 2751606345603825007, guid: b69676d2f55127748a15db8c018bb8dc, type: 3}
   boss: {fileID: 1708171145700420755, guid: 74cfbf3cd0740a8489d5c6b09d980149, type: 3}
-  waves: 4
+  waves: 20
   hazardCount: 12
   spawnWait: 2
   startWait: 0.5
-  waveWait: 4
+  waveWait: 0.5

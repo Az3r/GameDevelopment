@@ -422,8 +422,8 @@ MonoBehaviour:
   - {fileID: 6016808765090868738}
   - {fileID: 3871950626835956895}
   shot: {fileID: 0}
-  fireRate: 4
-  delay: 10
+  fireRate: 2
+  delay: 1
 --- !u!1 &2955170376311753173
 GameObject:
   m_ObjectHideFlags: 0
