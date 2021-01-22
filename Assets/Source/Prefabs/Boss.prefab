@@ -1353,7 +1353,7 @@ MonoBehaviour:
   - {fileID: 6251862933278032801, guid: d15eba24e657ca541aef9ef9363734e4, type: 3}
   - {fileID: 4791510514692944473, guid: effaa6a249dff2d41afadeec57921140, type: 3}
   fireRate: 4
-  delay: 10
+  delay: 2
 --- !u!1 &851349319265277404
 GameObject:
   m_ObjectHideFlags: 0

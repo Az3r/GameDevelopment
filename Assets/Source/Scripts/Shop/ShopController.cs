@@ -164,7 +164,7 @@ public class ShopController : MonoBehaviour
         GlobalState.Instance.saveds[i] = savedData;
 
         // Update UI
-        var button = saveSlots[i];
+        var button = saveSlots[i - 1];
         // unsaved child, when the slot hasn't been used yet
         var saved = button.transform.GetChild(0).gameObject;
         saved.SetActive(false);
