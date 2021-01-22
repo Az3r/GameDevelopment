@@ -256,7 +256,7 @@ MonoBehaviour:
   meta: {fileID: 11400000, guid: 032cd0dd87ba7f7459ae7514a1e00063, type: 2}
   tilt: 3
   boundary:
-    horizontal: {x: -24, y: 24}
+    horizontal: {x: -39, y: 39}
     vertical: {x: -12, y: 12}
   powerLevel: 0
   guns:
@@ -270,7 +270,6 @@ MonoBehaviour:
   - {fileID: 6955662792153702489, guid: 387c4efeb28422c4e9ed03f92537ede4, type: 3}
   - {fileID: 981623728348427085, guid: c3b971d170584744aa1484e667ab33c1, type: 3}
   _shootCooldown: 0
-  _maxHealth: 0
   _movement: {x: 0, y: 0}
   _shooting: 0
 --- !u!114 &1343003823
