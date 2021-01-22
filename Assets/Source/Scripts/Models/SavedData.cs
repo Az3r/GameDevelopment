@@ -21,7 +21,7 @@ public class SavedData : ISerializationCallbackReceiver
             attackLevel = 0,
             healthLevel = 0,
             reloadLevel = 0,
-            money = 0,
+            money = 10000,
             currentStage = 1,
             slot = 0,
             modelIndex = -1,
