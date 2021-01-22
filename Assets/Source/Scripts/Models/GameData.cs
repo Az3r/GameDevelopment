@@ -10,4 +10,5 @@ public class GameData : ScriptableObject
     public List<int> attackCost;
     public List<int> reloadCost;
     public List<int> healthCost;
+    public List<int> stageMoney;
 }

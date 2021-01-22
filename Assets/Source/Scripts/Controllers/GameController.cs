@@ -93,8 +93,12 @@ public class GameController : MonoBehaviour
     }
     public void ToShopScene(int stageIncrease = 0)
     {
-        progress.currentStage += stageIncrease;
-        if (stageIncrease > 0) progress.SaveToFile();
+        if (stageIncrease > 0)
+        {
+            progress.money += data.stageMoney[progress.currentStage];
+            progress.currentStage += stageIncrease;
+            progress.SaveToFile();
+        }
         SceneManager.LoadScene("ShopScene");
     }
     public void AddScore(int value)
