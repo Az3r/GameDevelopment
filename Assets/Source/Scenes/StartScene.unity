@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1086,7 +1086,8 @@ AudioSource:
   m_GameObject: {fileID: 483119327}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 23eb651f73dfba6488d8ac5110688ebb,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 496889b4a7181554195431a5aa71c82d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.095

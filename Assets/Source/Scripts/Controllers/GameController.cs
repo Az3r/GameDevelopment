@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
     public GameObject winGUI;
     public List<GameObject> healthIcons;
     public List<GameObject> ultimateIcons;
+    public List<Material> backgrounds;
+    public MeshRenderer backgroundRenderer;
 
 
     public Vector3 playerSpawnLocation;
@@ -55,6 +57,7 @@ public class GameController : MonoBehaviour
         {
             healthIcons[i].SetActive(i < maxHealth);
         }
+        backgroundRenderer.material = backgrounds[Mathf.Min(backgrounds.Count - 1, progress.currentStage)];
 
     }
 
@@ -90,8 +93,12 @@ public class GameController : MonoBehaviour
     }
     public void ToShopScene(int stageIncrease = 0)
     {
-        progress.currentStage += stageIncrease;
-        if (stageIncrease > 0) progress.SaveToFile();
+        if (stageIncrease > 0)
+        {
+            progress.money += data.stageMoney[progress.currentStage];
+            progress.currentStage += stageIncrease;
+            progress.SaveToFile();
+        }
         SceneManager.LoadScene("ShopScene");
     }
     public void AddScore(int value)
@@ -116,6 +123,5 @@ public class GameController : MonoBehaviour
         winGUI.SetActive(true);
         inputs.SwitchCurrentActionMap("None");
     }
-
 
 }

@@ -20,7 +20,8 @@ public class GlobalState : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance is null)
+            Instance = this;
         LoadSaveFiles();
         // use SingleTon so this object can be safely destroy
         Destroy(this);
